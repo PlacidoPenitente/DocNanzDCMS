@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
+    <UserControl.DataContext>
+        <local:NewUserAccountViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,8 +41,8 @@
                 <RowDefinition Height="98"/>
                 <RowDefinition Height="98"/>
             </Grid.RowDefinitions>
-            <TextBox Width="200" Grid.Column="0" Grid.Row="0" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="200" Grid.Column="1" Grid.Row="0" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
+            <TextBox Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
+            <TextBox Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
             <TextBox Width="200" Grid.Column="2" Grid.Row="0" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
