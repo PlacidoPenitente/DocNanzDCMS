@@ -32,5 +32,29 @@ namespace DocNanzDCMS
         {
             return (ImageSource)element.GetValue(IconProperty);
         }
+
+        public static readonly DependencyProperty LabelProperty = DependencyProperty.RegisterAttached("Label", typeof(String), typeof(AttachedProperties), new FrameworkPropertyMetadata(""));
+
+        public static void SetLabel(DependencyObject element, String value)
+        {
+            element.SetValue(LabelProperty, value);
+        }
+
+        public static String GetLabel(DependencyObject element)
+        {
+            return (String)element.GetValue(LabelProperty);
+        }
+
+        public static readonly DependencyProperty ErrorProperty = DependencyProperty.RegisterAttached("Error", typeof(String), typeof(AttachedProperties), new FrameworkPropertyMetadata(""));
+
+        public static void setError(DependencyObject element, String value)
+        {
+            element.SetValue(ErrorProperty, value);
+        }
+
+        public static String GetError(DependencyObject element)
+        {
+            return (String)element.GetValue(ErrorProperty);
+        }
     }
 }

@@ -121,8 +121,8 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <StackPanel Grid.Column="1">
-            
-        </StackPanel>
+        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto">
+            <local:NewUserAccount/>
+        </ScrollViewer>
     </Grid>
 </Window>
