@@ -111,9 +111,6 @@
     <Resource Include="Images\Queue_48px.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Toothpaste_48px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\SlideUp_24px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +160,15 @@
     <Resource Include="Images\Coins_48px.png" />
     <Resource Include="Images\PageOverview3_48px.png" />
     <Resource Include="Images\SavingBook_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Today_48px.png" />
+    <Resource Include="Images\WindowsPhoneStore_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ActivityFeed_48px.png" />
+    <Resource Include="Images\AddNewUserMale_48px.png" />
+    <Resource Include="Images\User_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

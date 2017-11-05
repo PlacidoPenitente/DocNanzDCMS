@@ -5,7 +5,7 @@
     <ImageSource x:Key="Down">/Images/DownButton_24px.png</ImageSource>
     <ImageSource x:Key="Tooth">/Images/Tooth_48px.png</ImageSource>
     <ImageSource x:Key="Queue">/Images/Queue_48px.png</ImageSource>
-    <ImageSource x:Key="Treatment">/Images/Toothpaste_48px.png</ImageSource>
+    <ImageSource x:Key="OverviewDashboard">/Images/WindowsPhoneStore_48px.png</ImageSource>
     <ImageSource x:Key="Notification">/Images/Notification_48px.png</ImageSource>
     <ImageSource x:Key="Patient">/Images/Therapy_48px.png</ImageSource>
     <ImageSource x:Key="List">/Images/List_48px.png</ImageSource>
@@ -30,4 +30,8 @@
     <ImageSource x:Key="Overview">/Images/PageOverview3_48px.png</ImageSource>
     <ImageSource x:Key="PatientsRecord">/Images/SavingBook_48px.png</ImageSource>
     <ImageSource x:Key="FinancialReport">/Images/Coins_48px.png</ImageSource>
+    <ImageSource x:Key="Appointment">/Images/Today_48px.png</ImageSource>
+    <ImageSource x:Key="Users">/Images/User_48px.png</ImageSource>
+    <ImageSource x:Key="AddUser">/Images/AddNewUserMale_48px.png</ImageSource>
+    <ImageSource x:Key="Logs">/Images/ActivityFeed_48px.png</ImageSource>
 </ResourceDictionary>
