@@ -19,4 +19,12 @@
     <ImageSource x:Key="Unpaid">/Images/BankCardMissing_48px.png</ImageSource>
     <ImageSource x:Key="Providers">/Images/CreditCard_48px.png</ImageSource>
     <ImageSource x:Key="Inventory">/Images/OpenBox_48px.png</ImageSource>
+    <ImageSource x:Key="Reports">/Images/ComboChart_48px.png</ImageSource>
+    <ImageSource x:Key="Accounts">/Images/MaleUser_48px.png</ImageSource>
+    <ImageSource x:Key="Maintenance">/Images/Maintenance_48px.png</ImageSource>
+    <ImageSource x:Key="Help">/Images/Help_48px.png</ImageSource>
+    <ImageSource x:Key="Item">/Images/Product_48px.png</ImageSource>
+    <ImageSource x:Key="Add">/Images/Plus_48px.png</ImageSource>
+    <ImageSource x:Key="Update">/Images/DownloadingUpdates_48px.png</ImageSource>
+    <ImageSource x:Key="Critical">/Images/Error_48px.png</ImageSource>
 </ResourceDictionary>

@@ -149,5 +149,15 @@
     <Resource Include="Images\Error_48px.png" />
     <Resource Include="Images\Increase_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Help_48px.png" />
+    <Resource Include="Images\Maintenance_48px.png" />
+    <Resource Include="Images\MaleUser_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DownloadingUpdates_48px.png" />
+    <Resource Include="Images\Plus_48px.png" />
+    <Resource Include="Images\Product_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
