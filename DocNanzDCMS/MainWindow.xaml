@@ -35,10 +35,10 @@
                             <ToggleButton Grid.Column="1" IsChecked="True" x:Name="dashboard" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Overview" local:AttachedProperties.Icon="{StaticResource OverviewDashboard}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Make Appointment" local:AttachedProperties.Icon="{StaticResource Appointment}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Overview" local:AttachedProperties.Icon="{StaticResource OverviewDashboard}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Make Appointment" local:AttachedProperties.Icon="{StaticResource Appointment}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=patient_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -49,12 +49,12 @@
                             <ToggleButton Grid.Column="1" x:Name="patient" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=patient, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=finance_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -65,9 +65,9 @@
                             <ToggleButton Grid.Column="1" x:Name="finance" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=finance, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Summary" local:AttachedProperties.Icon="{StaticResource Profit}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Unpaid Transactions" local:AttachedProperties.Icon="{StaticResource Unpaid}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Providers" local:AttachedProperties.Icon="{StaticResource Providers}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Summary" local:AttachedProperties.Icon="{StaticResource Profit}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Unpaid Transactions" local:AttachedProperties.Icon="{StaticResource Unpaid}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Providers" local:AttachedProperties.Icon="{StaticResource Providers}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=inventory_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -78,10 +78,10 @@
                             <ToggleButton Grid.Column="1" x:Name="inventory" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=inventory, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Update Stocks" local:AttachedProperties.Icon="{StaticResource Update}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Critical Items" local:AttachedProperties.Icon="{StaticResource Critical}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Update Stocks" local:AttachedProperties.Icon="{StaticResource Update}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Critical Items" local:AttachedProperties.Icon="{StaticResource Critical}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=reports_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -92,9 +92,9 @@
                             <ToggleButton Grid.Column="1" x:Name="reports" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=reports, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Overview" local:AttachedProperties.Icon="{StaticResource Overview}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Patients Record" local:AttachedProperties.Icon="{StaticResource PatientsRecord}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Financial Report" local:AttachedProperties.Icon="{StaticResource FinancialReport}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Overview" local:AttachedProperties.Icon="{StaticResource Overview}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Patients Record" local:AttachedProperties.Icon="{StaticResource PatientsRecord}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Financial Report" local:AttachedProperties.Icon="{StaticResource FinancialReport}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=accounts_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -105,15 +105,15 @@
                             <ToggleButton Grid.Column="1" x:Name="accounts" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=accounts, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <Button Content="Users" local:AttachedProperties.Icon="{StaticResource Users}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Create New Account" local:AttachedProperties.Icon="{StaticResource AddUser}" Style="{StaticResource SubMenuButton}"/>
-                            <Button Content="Activity Logs" local:AttachedProperties.Icon="{StaticResource Logs}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Users" local:AttachedProperties.Icon="{StaticResource Users}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Create New Account" local:AttachedProperties.Icon="{StaticResource AddUser}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Activity Logs" local:AttachedProperties.Icon="{StaticResource Logs}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <ToggleButton Content="Maintenance" local:AttachedProperties.Icon="{StaticResource Maintenance}" Style="{StaticResource MenuButton}"/>
                         <ToggleButton Content="Help" local:AttachedProperties.Icon="{StaticResource Help}" Style="{StaticResource MenuButton}"/>
                     </StackPanel>
                 </ScrollViewer>
-                <StackPanel Grid.Row="1" Background="#0294A5">
+                <StackPanel Grid.Row="1" Background="{StaticResource Red}">
 
                 </StackPanel>
             </Grid>

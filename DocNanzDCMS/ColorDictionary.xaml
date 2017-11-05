@@ -5,4 +5,5 @@
     <SolidColorBrush x:Key="LightRed">#D32F2F</SolidColorBrush>
     <SolidColorBrush x:Key="LightLightRed">#FFEBEE</SolidColorBrush>
     <SolidColorBrush x:Key="Pink">#d6618f</SolidColorBrush>
+    <SolidColorBrush x:Key="Blue">#0294A5</SolidColorBrush>
 </ResourceDictionary>
