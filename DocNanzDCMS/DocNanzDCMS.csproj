@@ -159,5 +159,10 @@
     <Resource Include="Images\Plus_48px.png" />
     <Resource Include="Images\Product_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Coins_48px.png" />
+    <Resource Include="Images\PageOverview3_48px.png" />
+    <Resource Include="Images\SavingBook_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

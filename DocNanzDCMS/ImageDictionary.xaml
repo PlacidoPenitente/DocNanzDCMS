@@ -27,4 +27,7 @@
     <ImageSource x:Key="Add">/Images/Plus_48px.png</ImageSource>
     <ImageSource x:Key="Update">/Images/DownloadingUpdates_48px.png</ImageSource>
     <ImageSource x:Key="Critical">/Images/Error_48px.png</ImageSource>
+    <ImageSource x:Key="Overview">/Images/PageOverview3_48px.png</ImageSource>
+    <ImageSource x:Key="PatientsRecord">/Images/SavingBook_48px.png</ImageSource>
+    <ImageSource x:Key="FinancialReport">/Images/Coins_48px.png</ImageSource>
 </ResourceDictionary>

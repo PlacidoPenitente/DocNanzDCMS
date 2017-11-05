@@ -11,75 +11,100 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Background="{StaticResource LightRed}" RenderOptions.EdgeMode="Aliased">
-            <StackPanel Background="{StaticResource Red}" Width="225" Height="100">
+        <Grid Grid.Column="0" Background="{StaticResource LightRed}" RenderOptions.EdgeMode="Aliased">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Background="{StaticResource Red}" Width="225">
                 
             </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="500">
-                <StackPanel>
-                    <Grid Background="{Binding ElementName=dashboard_menu, Path=Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="24"/>
-                        </Grid.ColumnDefinitions>
-                        <ToggleButton Grid.Column="0" x:Name="dashboard_menu" local:AttachedProperties.Icon="{StaticResource Tooth}" Content="Dashboard" Style="{StaticResource MenuButton}"/>
-                        <ToggleButton Grid.Column="1" x:Name="dashboard" Style="{StaticResource toggle}"/>
-                    </Grid>
-                    <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                        <Button Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Treatment" local:AttachedProperties.Icon="{StaticResource Treatment}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Row="0">
+                    <StackPanel>
+                        <Grid Background="{Binding ElementName=dashboard_menu, Path=Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="24"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton Grid.Column="0" x:Name="dashboard_menu" local:AttachedProperties.Icon="{StaticResource Tooth}" Content="Dashboard" Style="{StaticResource MenuButton}"/>
+                            <ToggleButton Grid.Column="1" x:Name="dashboard" Style="{StaticResource toggle}"/>
+                        </Grid>
+                        <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                            <Button Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Treatment" local:AttachedProperties.Icon="{StaticResource Treatment}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
+                        </StackPanel>
+                        <Grid Background="{Binding ElementName=patient_menu, Path=Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="24"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton Content="Patients" x:Name="patient_menu" local:AttachedProperties.Icon="{StaticResource Patient}" Style="{StaticResource MenuButton}"/>
+                            <ToggleButton Grid.Column="1" x:Name="patient" Style="{StaticResource toggle}"/>
+                        </Grid>
+                        <StackPanel Visibility="{Binding ElementName=patient, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                            <Button Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
+                        </StackPanel>
+                        <Grid Background="{Binding ElementName=finance_menu, Path=Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="24"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton x:Name="finance_menu" local:AttachedProperties.Icon="{StaticResource Bill}" Content="Finance" Style="{StaticResource MenuButton}" IsChecked="True"/>
+                            <ToggleButton Grid.Column="1" x:Name="finance" Style="{StaticResource toggle}"/>
+                        </Grid>
+                        <StackPanel Visibility="{Binding ElementName=finance, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                            <Button Content="Summary" local:AttachedProperties.Icon="{StaticResource Profit}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Unpaid Transactions" local:AttachedProperties.Icon="{StaticResource Unpaid}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Providers" local:AttachedProperties.Icon="{StaticResource Providers}" Style="{StaticResource SubMenuButton}"/>
+                        </StackPanel>
+                        <Grid Background="{Binding ElementName=inventory_menu, Path=Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="24"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton x:Name="inventory_menu" Content="Inventory" local:AttachedProperties.Icon="{StaticResource Inventory}" Style="{StaticResource MenuButton}"/>
+                            <ToggleButton Grid.Column="1" x:Name="inventory" Style="{StaticResource toggle}"/>
+                        </Grid>
+                        <StackPanel Visibility="{Binding ElementName=inventory, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                            <Button Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Update Stocks" local:AttachedProperties.Icon="{StaticResource Update}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Critical Items" local:AttachedProperties.Icon="{StaticResource Critical}" Style="{StaticResource SubMenuButton}"/>
+                        </StackPanel>
+                        <Grid Background="{Binding ElementName=reports_menu, Path=Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="24"/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton Content="Reports" x:Name="reports_menu" local:AttachedProperties.Icon="{StaticResource Reports}" Style="{StaticResource MenuButton}"/>
+                            <ToggleButton Grid.Column="1" x:Name="reports" Style="{StaticResource toggle}"/>
+                        </Grid>
+                        <StackPanel Visibility="{Binding ElementName=reports, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                            <Button Content="Overview" local:AttachedProperties.Icon="{StaticResource Overview}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Patients Record" local:AttachedProperties.Icon="{StaticResource PatientsRecord}" Style="{StaticResource SubMenuButton}"/>
+                            <Button Content="Financial Report" local:AttachedProperties.Icon="{StaticResource FinancialReport}" Style="{StaticResource SubMenuButton}"/>
+                        </StackPanel>
+                        <ToggleButton Content="User Accounts" local:AttachedProperties.Icon="{StaticResource Accounts}" Style="{StaticResource MenuButton}"/>
+                        <ToggleButton Content="Maintenance" local:AttachedProperties.Icon="{StaticResource Maintenance}" Style="{StaticResource MenuButton}"/>
+                        <ToggleButton Content="Help" local:AttachedProperties.Icon="{StaticResource Help}" Style="{StaticResource MenuButton}"/>
                     </StackPanel>
-                    <Grid Background="{Binding ElementName=patient_menu, Path=Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="24"/>
-                        </Grid.ColumnDefinitions>
-                        <ToggleButton Content="Patients" x:Name="patient_menu" local:AttachedProperties.Icon="{StaticResource Patient}" Style="{StaticResource MenuButton}"/>
-                        <ToggleButton Grid.Column="1" x:Name="patient" Style="{StaticResource toggle}"/>
-                    </Grid>
-                    <StackPanel Visibility="{Binding ElementName=patient, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                        <Button Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
-                    </StackPanel>
-                    <Grid Background="{Binding ElementName=finance_menu, Path=Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="24"/>
-                        </Grid.ColumnDefinitions>
-                        <ToggleButton x:Name="finance_menu" local:AttachedProperties.Icon="{StaticResource Bill}" Content="Finance" Style="{StaticResource MenuButton}" IsChecked="True"/>
-                        <ToggleButton Grid.Column="1" x:Name="finance" Style="{StaticResource toggle}"/>
-                    </Grid>
-                    <StackPanel Visibility="{Binding ElementName=finance, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                        <Button Content="Summary" local:AttachedProperties.Icon="{StaticResource Profit}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Unpaid Transactions" local:AttachedProperties.Icon="{StaticResource Unpaid}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Providers" local:AttachedProperties.Icon="{StaticResource Providers}" Style="{StaticResource SubMenuButton}"/>
-                    </StackPanel>
-                    <Grid Background="{Binding ElementName=inventory_menu, Path=Background}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="24"/>
-                        </Grid.ColumnDefinitions>
-                        <ToggleButton x:Name="inventory_menu" Content="Inventory" local:AttachedProperties.Icon="{StaticResource Inventory}" Style="{StaticResource MenuButton}"/>
-                        <ToggleButton Grid.Column="1" x:Name="inventory" IsChecked="True" Style="{StaticResource toggle}"/>
-                    </Grid>
-                    <StackPanel Visibility="{Binding ElementName=inventory, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                        <Button Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Update Stocks" local:AttachedProperties.Icon="{StaticResource Update}" Style="{StaticResource SubMenuButton}"/>
-                        <Button Content="Critical Items" local:AttachedProperties.Icon="{StaticResource Critical}" Style="{StaticResource SubMenuButton}"/>
-                    </StackPanel>
-                    <ToggleButton Content="Reports" local:AttachedProperties.Icon="{StaticResource Reports}" Style="{StaticResource MenuButton}"/>
-                    <ToggleButton Content="User Accounts" local:AttachedProperties.Icon="{StaticResource Accounts}" Style="{StaticResource MenuButton}"/>
-                    <ToggleButton Content="Maintenance" local:AttachedProperties.Icon="{StaticResource Maintenance}" Style="{StaticResource MenuButton}"/>
-                    <ToggleButton Content="Help" local:AttachedProperties.Icon="{StaticResource Help}" Style="{StaticResource MenuButton}"/>
+                </ScrollViewer>
+                <StackPanel Grid.Row="1" Background="#0294A5">
+
                 </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
+            </Grid>
+        </Grid>
         <StackPanel Grid.Column="1">
             
         </StackPanel>

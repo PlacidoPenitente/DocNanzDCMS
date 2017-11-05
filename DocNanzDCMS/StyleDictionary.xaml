@@ -65,13 +65,9 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="48"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Width="24" Source="{TemplateBinding local:AttachedProperties.Icon}"/>
                             <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" Margin="10"/>
-                            <Border Grid.Column="2" Background="#d6618f">
-                                <Label Content="12" Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center"/>
-                            </Border>
                         </Grid>
                     </Border>
                 </ControlTemplate>
