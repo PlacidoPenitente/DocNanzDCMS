@@ -15,14 +15,48 @@
             <StackPanel Background="{StaticResource Red}" Width="225" Height="100">
                 
             </StackPanel>
-            <ToggleButton x:Name="dashboard" local:AttachedProperties.Icon="{StaticResource Tooth}" Content="Dashboard" Style="{StaticResource MenuButton}" IsChecked="True"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Grid.Column="0" local:AttachedProperties.Icon="{StaticResource Tooth}" Content="Dashboard" Style="{StaticResource MenuButton}"/>
+                <ToggleButton Grid.Column="1" x:Name="dashboard" Style="{StaticResource toggle}"/>
+            </Grid>
             <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
                 <Button Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
-                <Button Content="Treatments" local:AttachedProperties.Icon="{StaticResource Treatment}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Treatment" local:AttachedProperties.Icon="{StaticResource Treatment}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
             </StackPanel>
-            <ToggleButton Content="Patients" Style="{StaticResource MenuButton}"/>
-            <ToggleButton Content="Scheduler" Style="{StaticResource MenuButton}"/>
-            <ToggleButton Content="Finance" Style="{StaticResource MenuButton}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Content="Patients" local:AttachedProperties.Icon="{StaticResource Patient}" Style="{StaticResource MenuButton}"/>
+                <ToggleButton Grid.Column="1" x:Name="patient" Style="{StaticResource toggle}"/>
+            </Grid>
+            <StackPanel Visibility="{Binding ElementName=patient, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                <Button Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton local:AttachedProperties.Icon="{StaticResource Bill}" Content="Finance" Style="{StaticResource MenuButton}" IsChecked="True"/>
+                <ToggleButton Grid.Column="1" x:Name="finance" Style="{StaticResource toggle}"/>
+            </Grid>
+            <StackPanel Visibility="{Binding ElementName=finance, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                <Button Content="Summary" local:AttachedProperties.Icon="{StaticResource Profit}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Unpaid Transactions" local:AttachedProperties.Icon="{StaticResource Unpaid}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Providers" local:AttachedProperties.Icon="{StaticResource Providers}" Style="{StaticResource SubMenuButton}"/>
+            </StackPanel>
             <ToggleButton Content="Inventory" Style="{StaticResource MenuButton}"/>
             <ToggleButton Content="Reports" Style="{StaticResource MenuButton}"/>
             <ToggleButton Content="User Accounts" Style="{StaticResource MenuButton}"/>

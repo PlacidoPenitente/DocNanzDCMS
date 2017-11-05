@@ -1,8 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DocNanzDCMS">
+    <ImageSource x:Key="Up">/Images/SlideUp_24px.png</ImageSource>
     <ImageSource x:Key="Down">/Images/DownButton_24px.png</ImageSource>
     <ImageSource x:Key="Tooth">/Images/Tooth_48px.png</ImageSource>
     <ImageSource x:Key="Queue">/Images/Queue_48px.png</ImageSource>
     <ImageSource x:Key="Treatment">/Images/Toothpaste_48px.png</ImageSource>
+    <ImageSource x:Key="Notification">/Images/Notification_48px.png</ImageSource>
+    <ImageSource x:Key="Patient">/Images/Therapy_48px.png</ImageSource>
+    <ImageSource x:Key="List">/Images/List_48px.png</ImageSource>
+    <ImageSource x:Key="Register">/Images/AddUserMale_48px.png</ImageSource>
+    <ImageSource x:Key="Family">/Images/ParentGuardian_48px.png</ImageSource>
+    <ImageSource x:Key="Medical">/Images/HealthBook_48px.png</ImageSource>
+    <ImageSource x:Key="Chart">/Images/FalseTeeth_48px.png</ImageSource>
+    <ImageSource x:Key="Files">/Images/Folder_48px.png</ImageSource>
+    <ImageSource x:Key="Bill">/Images/PaperMoney_48px.png</ImageSource>
+    <ImageSource x:Key="Profit">/Images/Profit_48px.png</ImageSource>
+    <ImageSource x:Key="Unpaid">/Images/BankCardMissing_48px.png</ImageSource>
+    <ImageSource x:Key="Providers">/Images/CreditCard_48px.png</ImageSource>
 </ResourceDictionary>

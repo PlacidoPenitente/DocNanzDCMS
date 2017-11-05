@@ -113,5 +113,32 @@
   <ItemGroup>
     <Resource Include="Images\Toothpaste_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SlideUp_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Notification_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Therapy_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddUserMale_48px.png" />
+    <Resource Include="Images\FalseTeeth_48px.png" />
+    <Resource Include="Images\Folder_48px.png" />
+    <Resource Include="Images\HealthBook_48px.png" />
+    <Resource Include="Images\List_48px.png" />
+    <Resource Include="Images\ParentGuardian_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PaperMoney_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Profit_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BankCardMissing_48px.png" />
+    <Resource Include="Images\CreditCard_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
