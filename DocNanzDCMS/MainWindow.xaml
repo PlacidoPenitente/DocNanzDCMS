@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DocNanzDCMS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="{StaticResource LightRed}" RenderOptions.EdgeMode="Aliased">
+            <StackPanel Background="{StaticResource Red}" Width="225" Height="100">
+                
+            </StackPanel>
+            <ToggleButton x:Name="dashboard" local:AttachedProperties.Icon="{StaticResource Tooth}" Content="Dashboard" Style="{StaticResource MenuButton}" IsChecked="True"/>
+            <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
+                <Button Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
+                <Button Content="Treatments" local:AttachedProperties.Icon="{StaticResource Treatment}" Style="{StaticResource SubMenuButton}"/>
+            </StackPanel>
+            <ToggleButton Content="Patients" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Scheduler" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Finance" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Inventory" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Reports" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="User Accounts" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Maintenance" Style="{StaticResource MenuButton}"/>
+            <ToggleButton Content="Help" Style="{StaticResource MenuButton}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            
+        </StackPanel>
     </Grid>
 </Window>
