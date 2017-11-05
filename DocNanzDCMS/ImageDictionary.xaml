@@ -18,4 +18,5 @@
     <ImageSource x:Key="Profit">/Images/Profit_48px.png</ImageSource>
     <ImageSource x:Key="Unpaid">/Images/BankCardMissing_48px.png</ImageSource>
     <ImageSource x:Key="Providers">/Images/CreditCard_48px.png</ImageSource>
+    <ImageSource x:Key="Inventory">/Images/OpenBox_48px.png</ImageSource>
 </ResourceDictionary>

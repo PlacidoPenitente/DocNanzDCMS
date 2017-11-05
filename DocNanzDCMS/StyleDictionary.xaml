@@ -2,11 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DocNanzDCMS">
     <Style x:Key="toggle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border Margin="4">
-                        <Image x:Name="icon" Source="{StaticResource Down}"/>
+                    <Border Background="{TemplateBinding Background}">
+                        <Image x:Name="icon" Margin="4" Source="{StaticResource Down}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -17,16 +18,22 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource Red}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="MenuButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontFamily" Value="Century Gothic"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border Background="{StaticResource LightRed}" SnapsToDevicePixels="True">
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="48"/>
@@ -39,6 +46,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource Red}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="SubMenuButton" TargetType="{x:Type Button}">

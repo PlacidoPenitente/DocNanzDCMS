@@ -140,5 +140,14 @@
     <Resource Include="Images\BankCardMissing_48px.png" />
     <Resource Include="Images\CreditCard_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OpenBox_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddList_48px.png" />
+    <Resource Include="Images\ComboChart_48px.png" />
+    <Resource Include="Images\Error_48px.png" />
+    <Resource Include="Images\Increase_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
