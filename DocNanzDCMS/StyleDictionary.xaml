@@ -18,11 +18,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource Red}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="MenuButton" TargetType="{x:Type RadioButton}">
