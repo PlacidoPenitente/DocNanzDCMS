@@ -103,7 +103,7 @@
                                 </StackPanel>
                             </StackPanel>
                         </Border>
-                        <Label FontFamily="{TemplateBinding FontFamily}" FontSize="11" Content="Error." Foreground="{StaticResource LightRed}"/>
+                        <Label FontFamily="Segoe UI" FontSize="11" Content="{TemplateBinding local:AttachedProperties.Error}" Foreground="{StaticResource LightRed}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

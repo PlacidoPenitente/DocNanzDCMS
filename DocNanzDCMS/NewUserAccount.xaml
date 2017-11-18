@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
-    <UserControl.DataContext>
-        <local:NewUserAccountViewModel/>
-    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -41,19 +38,19 @@
                 <RowDefinition Height="98"/>
                 <RowDefinition Height="98"/>
             </Grid.RowDefinitions>
-            <TextBox Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="200" Grid.Column="2" Grid.Row="0" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
 
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <Label HorizontalContentAlignment="Center" Content="Gender:" FontFamily="Century Gothic" FontSize="14" Foreground="{StaticResource Blue}" Margin="1,0,-1,0"/>
+                <Label HorizontalContentAlignment="Center" Content="Gender:" FontFamily="Century Gothic" FontSize="14" Foreground="{StaticResource Blue}"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <RadioButton IsChecked="True" Content="Male" Style="{StaticResource RadioButton}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
                     <RadioButton Content="Female" Style="{StaticResource RadioButton}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
                 </StackPanel>
             </StackPanel>
-            <TextBox Width="200" Grid.Column="1" Grid.Row="1" local:AttachedProperties.Label="Birthdate:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="100" IsReadOnly="True" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Birthday" Width="200" Grid.Column="1" Grid.Row="1" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Birthdate:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Age" Width="100" IsReadOnly="True" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
 
             <TextBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
 

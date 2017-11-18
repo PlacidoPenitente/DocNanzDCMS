@@ -47,7 +47,7 @@ namespace DocNanzDCMS
 
         public static readonly DependencyProperty ErrorProperty = DependencyProperty.RegisterAttached("Error", typeof(String), typeof(AttachedProperties), new FrameworkPropertyMetadata(""));
 
-        public static void setError(DependencyObject element, String value)
+        public static void SetError(DependencyObject element, String value)
         {
             element.SetValue(ErrorProperty, value);
         }
