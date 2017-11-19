@@ -25,6 +25,10 @@ namespace DocNanzDCMS
             Firstname.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
             MiddleName.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
             LastName.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
+
+            CustomDatePicker date_picker = new CustomDatePicker(18, 75);
+            Birthdate.DataContext = date_picker;
+            Age.DataContext = date_picker;
         }
     }
 }
