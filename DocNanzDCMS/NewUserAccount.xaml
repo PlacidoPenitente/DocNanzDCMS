@@ -41,6 +41,7 @@
             <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
             <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
             <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
+            <!--
             <StackPanel Grid.Column="0" Grid.Row="1">
                 <Label HorizontalContentAlignment="Center" Content="Gender:" FontFamily="Century Gothic" FontSize="14" Foreground="{StaticResource Blue}"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -48,7 +49,8 @@
                     <RadioButton Content="Female" Style="{StaticResource RadioButton}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
                 </StackPanel>
             </StackPanel>
-            <ComboBox Style="{StaticResource ComboBox}">
+            -->
+            <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
                 <ComboBoxItem Content="Male"/>
                 <ComboBoxItem Content="Female"/>
             </ComboBox>
@@ -69,15 +71,19 @@
 
             <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 2:" Style="{StaticResource TextBox}"/>
             <TextBox Width="200" Grid.Column="2" Grid.Row="6" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
-
-            <StackPanel Grid.Column="0" Grid.Row="7">
+            <!--
+               <StackPanel Grid.Column="0" Grid.Row="7">
                 <Label HorizontalContentAlignment="Center" Content="Account Type:" FontFamily="Century Gothic" FontSize="14" Foreground="{StaticResource Blue}"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <RadioButton IsChecked="True" Content="Staff" Style="{StaticResource RadioButton}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
                     <RadioButton Content="Admin" Style="{StaticResource RadioButton}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
                 </StackPanel>
-            </StackPanel>
-            
+                </StackPanel>
+            -->
+            <ComboBox Grid.Column="0" Grid.Row="7" Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" local:AttachedProperties.Label="Account Type:" local:AttachedProperties.Error="">
+                <ComboBoxItem Content="Standard"/>
+                <ComboBoxItem Content="Administrator"/>
+            </ComboBox>
             <StackPanel Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <TextBox Width="400" local:AttachedProperties.Label="Attached Photo:" Style="{StaticResource TextBox}"/>
             </StackPanel>
