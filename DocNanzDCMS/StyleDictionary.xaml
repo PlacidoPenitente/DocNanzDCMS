@@ -371,7 +371,7 @@
                                 </Grid>
                             </StackPanel>
                         </Border>
-                        <Label FontFamily="{TemplateBinding FontFamily}" FontSize="11" Content="Error." Foreground="{StaticResource Red}"/>
+                        <Label FontFamily="{TemplateBinding FontFamily}" FontSize="11" Content="{TemplateBinding local:AttachedProperties.Error}" Foreground="{StaticResource Red}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

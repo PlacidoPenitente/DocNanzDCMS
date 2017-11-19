@@ -10,6 +10,7 @@ namespace DocNanzDCMS
     public class CustomTextBox : INotifyPropertyChanged
     {
         private string pattern;
+        String[] contents;
 
         public CustomTextBox(String pattern)
         {
@@ -25,14 +26,19 @@ namespace DocNanzDCMS
             get { return text; }
             set
             {
-                if (Regex.IsMatch(value, pattern))
+                contents =  value.Split(' ');
+                foreach(string text in contents)
                 {
-                    text = value;
-                    error = "";
-                }
-                else
-                {
-                    error = "Invalid Format!";
+                    if (Regex.IsMatch(text, pattern))
+                    {
+                        error = "";
+                        continue;
+                    }
+                    else
+                    {
+                        error = "Invalid Characters Found!";
+                        break;
+                    }
                 }
                 pce = new PropertyChangedEventArgs("Error");
                 PropertyChanged(this, pce);

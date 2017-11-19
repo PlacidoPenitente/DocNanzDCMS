@@ -22,13 +22,15 @@ namespace DocNanzDCMS
         public NewUserAccount()
         {
             InitializeComponent();
-            Firstname.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
-            MiddleName.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
-            LastName.DataContext = new CustomTextBox(@"^\w+([\s-']?\w+)*$");
+            String name_regex = @"^[a-zA-Z0-9]+$";
+            Firstname.DataContext = new CustomTextBox(name_regex);
+            MiddleName.DataContext = new CustomTextBox(name_regex);
+            LastName.DataContext = new CustomTextBox(name_regex);
 
             CustomDatePicker date_picker = new CustomDatePicker(18, 75);
             Birthdate.DataContext = date_picker;
             Age.DataContext = date_picker;
+            Address.DataContext = new CustomTextBox(@"^([a-z0-9_-])+$");
         }
     }
 }
