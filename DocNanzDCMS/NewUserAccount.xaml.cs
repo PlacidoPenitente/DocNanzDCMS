@@ -22,7 +22,7 @@ namespace DocNanzDCMS
         public NewUserAccount()
         {
             InitializeComponent();
-            String name_regex = @"^[a-zA-Z0-9]+$";
+            String name_regex = @"^[a-zA-Z0-9]+([-][a-zA-Z0-9]+)?(['][a-zA-Z0-9]*)?\.?$";
             Firstname.DataContext = new CustomTextBox(name_regex);
             MiddleName.DataContext = new CustomTextBox(name_regex);
             LastName.DataContext = new CustomTextBox(name_regex);

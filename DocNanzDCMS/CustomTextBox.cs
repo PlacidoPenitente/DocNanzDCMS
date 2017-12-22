@@ -20,7 +20,7 @@ namespace DocNanzDCMS
         private PropertyChangedEventArgs pce;
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
 
-        private String text;
+        private String text = "";
         public String Text
         {
             get { return text; }
