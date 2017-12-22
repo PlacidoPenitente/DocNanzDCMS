@@ -53,7 +53,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Account.cs" />
     <Compile Include="CustomDatePicker.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
