@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Appointment.cs" />
     <Compile Include="CustomDatePicker.cs" />
+    <Compile Include="MedicalHistory.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="User.cs" />
