@@ -50,24 +50,24 @@
                 <ComboBoxItem Content="Female"/>
             </ComboBox>
             <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Birthdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
-            <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError}" Text="{Binding Age}" Width="100" IsReadOnly="True" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError}" IsReadOnly="True" Text="{Binding Birthdate, Mode=OneWay, Converter={StaticResource date_to_age}}" Width="100" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
 
-            <TextBox x:Name="Address" Width="600" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Address" Width="600" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
 
-            <TextBox x:Name="EmailAddress" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Email Address:" Style="{StaticResource TextBox}" Margin="1,0,199,0"/>
-            <TextBox x:Name="ContactNo" Width="200" Grid.Column="2" Grid.Row="3" local:AttachedProperties.Label="Contact No.:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="EmailAddress" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Email Address:" Style="{StaticResource TextBox}" Margin="1,0,199,0"/>
+            <TextBox x:Name="ContactNo" Text="{Binding ContactNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Grid.Column="2" Grid.Row="3" local:AttachedProperties.Label="Contact No.:" Style="{StaticResource TextBox}"/>
 
-            <TextBox x:Name="Username" Grid.Column="0" Grid.Row="4" local:AttachedProperties.Label="Username:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Username" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="4" local:AttachedProperties.Label="Username:" Style="{StaticResource TextBox}"/>
             <PasswordBox x:Name="Password" Width="200" Grid.Column="1" Grid.Row="4" local:AttachedProperties.Label="Password:" Style="{StaticResource PasswordBox}"/>
             <PasswordBox x:Name="PasswordCopy" Width="200" Grid.Column="2" Grid.Row="4" local:AttachedProperties.Label="Retype Password:" Style="{StaticResource PasswordBox}"/>
 
-            <TextBox Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 1:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="200" Grid.Column="2" Grid.Row="5" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
+            <TextBox Grid.Column="0" Text="{Binding Question1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 1:" Style="{StaticResource TextBox}"/>
+            <TextBox Width="200" Text="{Binding Answer1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="5" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
 
-            <TextBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 2:" Style="{StaticResource TextBox}"/>
-            <TextBox Width="200" Grid.Column="2" Grid.Row="6" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
+            <TextBox Grid.Column="0" Text="{Binding Question2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 2:" Style="{StaticResource TextBox}"/>
+            <TextBox Width="200" Grid.Column="2" Text="{Binding Answer2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="7" Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" local:AttachedProperties.Label="Account Type:" local:AttachedProperties.Error="">
+            <ComboBox Grid.Column="0" Grid.Row="7" Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" SelectedItem="{Binding AccountType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Account Type:" local:AttachedProperties.Error="">
                 <ComboBoxItem Content="Standard"/>
                 <ComboBoxItem Content="Administrator"/>
             </ComboBox>
