@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DocNanzDCMS
 {
-    public class Tooth
+    public class SubTooth
     {
-        private string toothNo;
     }
 }
