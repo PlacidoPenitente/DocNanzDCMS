@@ -7,6 +7,5 @@ namespace DocNanzDCMS
 {
     public class Tooth
     {
-        private string toothNo;
     }
 }

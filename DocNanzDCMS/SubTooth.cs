@@ -7,6 +7,5 @@ namespace DocNanzDCMS
 {
     public class SubTooth
     {
-        private string condition;
     }
 }

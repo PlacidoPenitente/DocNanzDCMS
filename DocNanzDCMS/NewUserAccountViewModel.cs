@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace DocNanzDCMS
 {
     public class NewUserAccountViewModel : INotifyPropertyChanged
     {
         private User user;
-
+        private ICommand saveUserCommand;
 
         public NewUserAccountViewModel()
         {
             this.user = new User();
+            this.saveUserCommand = new RelayCommand(executeSaveCommand, canExecuteSaveCommand);
+        }
+
+        private bool canExecuteSaveCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void executeSaveCommand(object parameter)
+        {
+            Console.WriteLine("Hello");
         }
 
         public string FirstName { get => user.FirstName; set
@@ -127,6 +139,8 @@ namespace DocNanzDCMS
                 OnPropertyChanged("Answer2");
             }
         }
+
+        public ICommand SaveUserCommand { get => saveUserCommand; set => saveUserCommand = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
