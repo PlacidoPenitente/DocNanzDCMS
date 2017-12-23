@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
+    <UserControl.DataContext>
+        <local:NewUserAccountViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,15 +41,15 @@
                 <RowDefinition Height="98"/>
                 <RowDefinition Height="98"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
-            <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
-            <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
             
-            <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
+            <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" SelectedItem="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
                 <ComboBoxItem Content="Male"/>
                 <ComboBoxItem Content="Female"/>
             </ComboBox>
-            <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
+            <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Birthdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
             <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError}" Text="{Binding Age}" Width="100" IsReadOnly="True" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
 
             <TextBox x:Name="Address" Width="600" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>

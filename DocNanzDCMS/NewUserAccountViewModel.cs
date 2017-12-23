@@ -133,6 +133,7 @@ namespace DocNanzDCMS
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Console.WriteLine(propertyName);
         }
     }
 }
