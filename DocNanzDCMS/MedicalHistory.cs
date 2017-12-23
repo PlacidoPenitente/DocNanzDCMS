@@ -7,6 +7,8 @@ namespace DocNanzDCMS
 {
     public class MedicalHistory
     {
+        private DateTime evaluationDate;
 
+        public DateTime EvaluationDate { get => evaluationDate; set => evaluationDate = value; }
     }
 }
