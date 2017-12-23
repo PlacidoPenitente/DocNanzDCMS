@@ -61,6 +61,7 @@
     <Compile Include="Operation.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Tooth.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
     <Page Include="ColorDictionary.xaml">
