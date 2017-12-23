@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Appointment.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="CustomDatePicker.cs" />
     <Compile Include="DentalChart.cs" />
     <Compile Include="Item.cs" />
@@ -61,7 +62,9 @@
     <Compile Include="Operation.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Restoration.cs" />
     <Compile Include="SubTooth.cs" />
+    <Compile Include="Surgery.cs" />
     <Compile Include="Tooth.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
