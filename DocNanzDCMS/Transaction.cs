@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DocNanzDCMS
 {
-    public class DentalChart
+    class Transaction
     {
-
     }
 }
