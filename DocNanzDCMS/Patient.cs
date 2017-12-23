@@ -9,7 +9,6 @@ namespace DocNanzDCMS
     {
         private string religion;
         private string nationality;
-        private string nickname;
         private string occupation;
         private Patient father;
         private Patient mother;
@@ -23,7 +22,6 @@ namespace DocNanzDCMS
 
         public string Religion { get => religion; set => religion = value; }
         public string Nationality { get => nationality; set => nationality = value; }
-        public string Nickname { get => nickname; set => nickname = value; }
         public string Occupation { get => occupation; set => occupation = value; }
         public Patient Father { get => father; set => father = value; }
         public Patient Mother { get => mother; set => mother = value; }
