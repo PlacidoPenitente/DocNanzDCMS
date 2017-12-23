@@ -22,15 +22,17 @@ namespace DocNanzDCMS
         public NewUserAccount()
         {
             InitializeComponent();
-            //String name_regex = @"^[a-zA-Z0-9]+([-][a-zA-Z0-9]+)?(['][a-zA-Z0-9]*)?\.?$";
-            //Firstname.DataContext = new CustomTextBox(name_regex);
-            //MiddleName.DataContext = new CustomTextBox(name_regex);
-            //LastName.DataContext = new CustomTextBox(name_regex);
+        }
 
-            //CustomDatePicker date_picker = new CustomDatePicker(18, 75);
-            //Birthdate.DataContext = date_picker;
-            //Age.DataContext = date_picker;
-            //Address.DataContext = new CustomTextBox(@"^([a-z0-9_-])+$");
+        private void PasswordCopy_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Password_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
+            newUserAccountViewModel.Password = ((PasswordBox)sender).Password;
         }
     }
 }
