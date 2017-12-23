@@ -96,7 +96,7 @@ namespace DocNanzDCMS
         public string AccountType { get => user.AccountType; set
             {
                 user.AccountType = value;
-                OnPropertyChanged("Password");
+                OnPropertyChanged("AccountType");
             }
         }
 
