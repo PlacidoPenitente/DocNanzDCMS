@@ -68,12 +68,17 @@
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Restoration.cs" />
+    <Compile Include="SaveUserCommand.cs" />
     <Compile Include="SubTooth.cs" />
     <Compile Include="Surgery.cs" />
     <Compile Include="Tooth.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
     <Page Include="ColorDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommandDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
