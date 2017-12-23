@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DocNanzDCMS
 {
-    class Transaction
+    public class Transaction
     {
     }
 }
