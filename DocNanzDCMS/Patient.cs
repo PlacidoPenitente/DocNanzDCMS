@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DocNanzDCMS
 {
-    class Patient
+    public class Patient
     {
     }
 }
