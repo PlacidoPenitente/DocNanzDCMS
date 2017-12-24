@@ -50,7 +50,7 @@
                 <ComboBoxItem Content="Female"/>
             </ComboBox>
             <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Birthdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
-            <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError}" IsReadOnly="True" Text="{Binding Birthdate, Mode=OneWay, Converter={StaticResource date_to_age}}" Width="100" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="100" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
 
             <TextBox x:Name="Address" Width="600" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding Error}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
 

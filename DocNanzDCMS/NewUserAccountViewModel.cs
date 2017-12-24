@@ -13,10 +13,20 @@ namespace DocNanzDCMS
         private User user;
         private OpenFileDialog openFileDialog;
         public event PropertyChangedEventHandler PropertyChanged;
+        private String ageError;
 
         public NewUserAccountViewModel()
         {
             this.user = new User();
+        }
+
+        public String Age
+        {
+            get => user.Age; set
+            {
+                user.Age = value;
+                OnPropertyChanged("Age");
+            }
         }
 
         public string FirstName { get => user.FirstName; set
@@ -43,6 +53,20 @@ namespace DocNanzDCMS
         public DateTime Birthdate { get => user.Birthdate; set
             {
                 user.Birthdate = value;
+                AgeError = "";
+                int age = DateTime.Now.Year - value.Year;
+
+                if (DateTime.Now.Month < value.Month || (DateTime.Now.Month == value.Month && DateTime.Now.Day < value.Day))
+                {
+                    age--;
+                }
+
+                if (age < 18||age>75)
+                {
+                    AgeError = "Invalid Age!";
+                }
+
+                Age = age.ToString();
                 OnPropertyChanged("Birthdate");
             }
         }
@@ -128,6 +152,13 @@ namespace DocNanzDCMS
             {
                 user.Answer2 = value;
                 OnPropertyChanged("Answer2");
+            }
+        }
+
+        public string AgeError { get => ageError; set
+            {
+                ageError = value;
+                OnPropertyChanged("AgeError");
             }
         }
 
