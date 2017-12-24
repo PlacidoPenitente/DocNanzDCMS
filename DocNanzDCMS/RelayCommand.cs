@@ -11,7 +11,7 @@ namespace DocNanzDCMS
         public event EventHandler CanExecuteChanged;
 
         private Action<object> executeCommand;
-        private Func<object, bool> canExecuteCommand; 
+        private Func<object, bool> canExecuteCommand;
 
         public RelayCommand(Action<object> executeCommand, Func<object, bool> canExecuteCommand)
         {
