@@ -10,6 +10,7 @@ namespace DocNanzDCMS
 {
     public class NewUserAccountViewModel : INotifyPropertyChanged
     {
+        private DatabaseConnection databaseConnection;
         private User user;
         private OpenFileDialog openFileDialog;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -32,6 +33,7 @@ namespace DocNanzDCMS
         public NewUserAccountViewModel()
         {
             this.user = new User();
+            this.databaseConnection = new DatabaseConnection();
         }
 
         public String Age
@@ -362,7 +364,7 @@ namespace DocNanzDCMS
 
         public void saveUserAccount()
         {
-            
+            databaseConnection.saveUserAccount(user);
         }
 
         public void cancelUserUpdate()
