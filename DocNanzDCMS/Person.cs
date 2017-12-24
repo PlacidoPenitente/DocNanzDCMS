@@ -12,7 +12,7 @@ namespace DocNanzDCMS
         private string lastName;
         private string age;
         private string gender;
-        private DateTime birthdate;
+        private DateTime birthdate = DateTime.Now;
         private string address;
         private string email;
         private string contactNo;

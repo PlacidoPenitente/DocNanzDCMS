@@ -13,7 +13,21 @@ namespace DocNanzDCMS
         private User user;
         private OpenFileDialog openFileDialog;
         public event PropertyChangedEventHandler PropertyChanged;
+        private String passwordCopy;
+        private String passwordCopyError;
         private String ageError;
+        private String contactNoError;
+        private String firstNameError;
+        private String middleNameError;
+        private String lastNameError;
+        private String addressError;
+        private String emailAddressError;
+        private String usernameError;
+        private String passwordError;
+        private String question1Error;
+        private String answer1Error;
+        private String question2Error;
+        private String answer2Error;
 
         public NewUserAccountViewModel()
         {
@@ -32,6 +46,11 @@ namespace DocNanzDCMS
         public string FirstName { get => user.FirstName; set
             {
                 user.FirstName = value;
+                FirstNameError = "";
+                if(value.Trim().Length<1)
+                {
+                    FirstNameError = "First Name is required!";
+                }
                 OnPropertyChanged("FirstName");
             }
         }
@@ -39,6 +58,11 @@ namespace DocNanzDCMS
         public string MiddleName { get => user.MiddleName; set
             {
                 user.MiddleName = value;
+                MiddleNameError = "";
+                if (value.Trim().Length < 1)
+                {
+                    MiddleNameError = "Middle Name is required!";
+                }
                 OnPropertyChanged("MiddleName");
             }
         }
@@ -46,6 +70,11 @@ namespace DocNanzDCMS
         public string LastName { get => user.LastName; set
             {
                 user.LastName = value;
+                LastNameError = "";
+                if (value.Trim().Length < 1)
+                {
+                    LastNameError = "Last Name is required!";
+                }
                 OnPropertyChanged("LastName");
             }
         }
@@ -74,6 +103,11 @@ namespace DocNanzDCMS
         public string Address { get => user.Address; set
             {
                 user.Address = value;
+                AddressError = "";
+                if (value.Trim().Length < 1)
+                {
+                    AddressError = "Address is required!";
+                }
                 OnPropertyChanged("Address");
             }
         }
@@ -81,6 +115,11 @@ namespace DocNanzDCMS
         public string Email { get => user.Email; set
             {
                 user.Email = value;
+                EmailAddressError = "";
+                if (value.Trim().Length < 1)
+                {
+                    EmailAddressError = "Email Address is required!";
+                }
                 OnPropertyChanged("Email");
             }
         }
@@ -88,6 +127,20 @@ namespace DocNanzDCMS
         public string ContactNo { get => user.ContactNo; set
             {
                 user.ContactNo = value;
+                ContactNoError = "";
+
+                if (ContactNo.Trim().Length<1)
+                {
+                    ContactNoError = "Contact No. is required!";
+                }
+
+                foreach(char c in value.ToCharArray())
+                {
+                    if(!Char.IsDigit(c))
+                    {
+                        ContactNoError = "Invalid Contact No!";
+                    }
+                }
                 OnPropertyChanged("ContactNo");
             }
         }
@@ -109,6 +162,11 @@ namespace DocNanzDCMS
         public string Username { get => user.Username; set
             {
                 user.Username = value;
+                UsernameError = "";
+                if (value.Trim().Length < 1)
+                {
+                    UsernameError = "Username is required!";
+                }
                 OnPropertyChanged("Username");
             }
         }
@@ -116,6 +174,12 @@ namespace DocNanzDCMS
         public string Password { get => user.Password; set
             {
                 user.Password = value;
+                PasswordError = "";
+                if (value.Trim().Length < 1)
+                {
+                    PasswordError = "Password is required!";
+                }
+                PasswordCopy = PasswordCopy;
                 OnPropertyChanged("Password");
             }
         }
@@ -130,6 +194,11 @@ namespace DocNanzDCMS
         public string Question1 { get => user.Question1; set
             {
                 user.Question1 = value;
+                Question1Error = "";
+                if (value.Trim().Length < 1)
+                {
+                    Question1Error = "Recovery Question is required!";
+                }
                 OnPropertyChanged("Question1");
             }
         }
@@ -137,6 +206,11 @@ namespace DocNanzDCMS
         public string Question2 { get => user.Question2; set
             {
                 user.Question2 = value;
+                Question2Error = "";
+                if (value.Trim().Length < 1)
+                {
+                    Question2Error = "Recovery Question is required!";
+                }
                 OnPropertyChanged("Question2");
             }
         }
@@ -144,6 +218,11 @@ namespace DocNanzDCMS
         public string Answer1 { get => user.Answer1; set
             {
                 user.Answer1 = value;
+                Answer1Error = "";
+                if (value.Trim().Length < 1)
+                {
+                    Answer1Error = "Answer is required!";
+                }
                 OnPropertyChanged("Answer1");
             }
         }
@@ -151,6 +230,11 @@ namespace DocNanzDCMS
         public string Answer2 { get => user.Answer2; set
             {
                 user.Answer2 = value;
+                Answer2Error = "";
+                if (value.Trim().Length < 1)
+                {
+                    Answer2Error = "Answer is required!";
+                }
                 OnPropertyChanged("Answer2");
             }
         }
@@ -159,6 +243,103 @@ namespace DocNanzDCMS
             {
                 ageError = value;
                 OnPropertyChanged("AgeError");
+            }
+        }
+
+        public string ContactNoError { get => contactNoError; set
+            {
+                contactNoError = value;
+                OnPropertyChanged("ContactNoError");
+            }
+        }
+
+        public string FirstNameError { get => firstNameError; set
+            {
+                firstNameError = value;
+                OnPropertyChanged("FirstNameError");
+            }
+        }
+
+        public string MiddleNameError { get => middleNameError; set
+            {
+                middleNameError = value;
+                OnPropertyChanged("MiddleNameError");
+            }
+        }
+
+        public string LastNameError { get => lastNameError; set
+            {
+                lastNameError = value;
+                OnPropertyChanged("LastNameError");
+            }
+        }
+
+        public string AddressError { get => addressError; set
+            {
+                addressError = value;
+                OnPropertyChanged("AddressError");
+            }
+        }
+        public string EmailAddressError { get => emailAddressError; set
+            {
+                emailAddressError = value;
+                OnPropertyChanged("EmailAddressError");
+            }
+        }
+        public string PasswordError { get => passwordError; set
+            {
+                passwordError = value;
+                OnPropertyChanged("PasswordError");
+            }
+        }
+        public string Question1Error { get => question1Error; set
+            {
+                question1Error = value;
+                OnPropertyChanged("Question1Error");
+            }
+        }
+        public string Answer1Error { get => answer1Error; set
+            {
+                answer1Error = value;
+                OnPropertyChanged("Answer1Error");
+            }
+        }
+        public string Question2Error { get => question2Error; set
+            {
+                question2Error = value;
+                OnPropertyChanged("Question2Error");
+            }
+        }
+        public string Answer2Error { get => answer2Error; set
+            {
+                answer2Error = value;
+                OnPropertyChanged("Answer2Error");
+            }
+        }
+
+        public string UsernameError { get => usernameError; set
+            {
+                usernameError = value;
+                OnPropertyChanged("UsernameError");
+            }
+        }
+
+        public string PasswordCopy { get => passwordCopy; set
+            {
+                passwordCopy = value;
+                PasswordCopyError = "";
+                if (Password != value)
+                {
+                    PasswordCopyError = "Passwords do not match!";
+                }
+                OnPropertyChanged("PasswordCopy");
+            }
+        }
+
+        public string PasswordCopyError { get => passwordCopyError; set
+            {
+                passwordCopyError = value;
+                OnPropertyChanged("PasswordCopyError");
             }
         }
 

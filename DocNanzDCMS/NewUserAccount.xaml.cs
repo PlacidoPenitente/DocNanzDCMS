@@ -26,7 +26,8 @@ namespace DocNanzDCMS
 
         private void PasswordCopy_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            
+            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
+            newUserAccountViewModel.PasswordCopy = ((PasswordBox)sender).Password;
         }
 
         private void Password_PasswordChanged(object sender, RoutedEventArgs e)
