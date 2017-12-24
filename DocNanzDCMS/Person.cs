@@ -10,6 +10,7 @@ namespace DocNanzDCMS
         private string firstName;
         private string middleName;
         private string lastName;
+        private int age;
         private string gender;
         private DateTime birthdate;
         private string address;
@@ -26,5 +27,6 @@ namespace DocNanzDCMS
         public string ContactNo { get => contactNo; set => contactNo = value; }
         public string Image { get => image; set => image = value; }
         public string Gender { get => gender; set => gender = value; }
+        public int Age { get => age; set => age = value; }
     }
 }
