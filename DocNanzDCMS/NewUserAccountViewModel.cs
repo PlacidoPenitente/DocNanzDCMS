@@ -11,24 +11,12 @@ namespace DocNanzDCMS
     public class NewUserAccountViewModel : INotifyPropertyChanged
     {
         private User user;
-        private ICommand saveUserCommand;
         private OpenFileDialog openFileDialog;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NewUserAccountViewModel()
         {
             this.user = new User();
-            this.saveUserCommand = new RelayCommand(executeSaveCommand, canExecuteSaveCommand);
-        }
-
-        private bool canExecuteSaveCommand(object parameter)
-        {
-            return true;
-        }
-
-        private void executeSaveCommand(object parameter)
-        {
-            Console.WriteLine("Hello");
         }
 
         public string FirstName { get => user.FirstName; set
@@ -143,8 +131,6 @@ namespace DocNanzDCMS
             }
         }
 
-        public ICommand SaveUserCommand { get => saveUserCommand; set => saveUserCommand = value; }
-
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -162,5 +148,14 @@ namespace DocNanzDCMS
             return openFileDialog.FileName;
         }
 
+        public void saveUserAccount()
+        {
+            
+        }
+
+        public void cancelUserUpdate()
+        {
+            
+        }
     }
 }

@@ -40,5 +40,18 @@ namespace DocNanzDCMS
             NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
             ((TextBox)sender).Text = newUserAccountViewModel.browsePhoto();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
+            if (((Button)sender).Content.Equals("Proceed"))
+            {
+                newUserAccountViewModel.saveUserAccount();
+            }
+            else if(((Button)sender).Content.Equals("Cancel"))
+            {
+                newUserAccountViewModel.cancelUserUpdate();
+            }
+        }
     }
 }
