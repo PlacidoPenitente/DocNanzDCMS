@@ -34,5 +34,11 @@ namespace DocNanzDCMS
             NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
             newUserAccountViewModel.Password = ((PasswordBox)sender).Password;
         }
+
+        private void TextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
+            ((TextBox)sender).Text = newUserAccountViewModel.browsePhoto();
+        }
     }
 }

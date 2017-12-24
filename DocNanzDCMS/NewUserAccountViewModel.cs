@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace DocNanzDCMS
     {
         private User user;
         private ICommand saveUserCommand;
+        private OpenFileDialog openFileDialog;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public NewUserAccountViewModel()
         {
@@ -142,12 +145,22 @@ namespace DocNanzDCMS
 
         public ICommand SaveUserCommand { get => saveUserCommand; set => saveUserCommand = value; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             Console.WriteLine(propertyName);
         }
+        
+        public string browsePhoto()
+        {
+            if(openFileDialog == null )
+            {
+                openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg)|*.jpg";
+            }
+            openFileDialog.ShowDialog();
+            return openFileDialog.FileName;
+        }
+
     }
 }

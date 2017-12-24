@@ -72,7 +72,7 @@
                 <ComboBoxItem Content="Administrator"/>
             </ComboBox>
             <StackPanel Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal">
-                <TextBox Width="400" local:AttachedProperties.Label="Attached Photo:" Text="{Binding Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBox}"/>
+                <TextBox Width="400" local:AttachedProperties.Label="Attach Photo:" MouseDoubleClick="TextBox_MouseDoubleClick" Text="{Binding Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBox}"/>
             </StackPanel>
         </Grid>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
