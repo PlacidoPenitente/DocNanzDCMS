@@ -59,7 +59,6 @@
     </ApplicationDefinition>
     <Compile Include="Appointment.cs" />
     <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="CustomDatePicker.cs" />
     <Compile Include="DateToAgeConverter.cs" />
