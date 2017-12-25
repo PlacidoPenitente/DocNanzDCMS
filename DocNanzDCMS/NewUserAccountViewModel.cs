@@ -57,7 +57,7 @@ namespace DocNanzDCMS
             this.userCopy = (User)this.User.Clone();
             this.activeUser = new User();
             this.activeUser.Username = "leonard";
-            this.DatabaseConnection = new DatabaseConnection(this);
+            this.databaseConnection = new DatabaseConnection(this);
         }
 
         public String Age
