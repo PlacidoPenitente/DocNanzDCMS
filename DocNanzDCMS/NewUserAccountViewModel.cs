@@ -36,7 +36,7 @@ namespace DocNanzDCMS
             this.user = new User();
             this.activeUser = new User();
             activeUser.Username = "leonard";
-            this.databaseConnection = new DatabaseConnection();
+            this.DatabaseConnection = new DatabaseConnection();
         }
 
         public String Age
@@ -171,6 +171,10 @@ namespace DocNanzDCMS
                 if (value.Trim().Length < 1)
                 {
                     UsernameError = "Username is required!";
+                }
+                else
+                {
+                    DatabaseConnection.checkUserAccount(this);
                 }
                 OnPropertyChanged("Username");
             }
@@ -349,6 +353,7 @@ namespace DocNanzDCMS
         }
 
         public User ActiveUser { get => activeUser; set => activeUser = value; }
+        public DatabaseConnection DatabaseConnection { get => databaseConnection; set => databaseConnection = value; }
 
         public void OnPropertyChanged(string propertyName)
         {
@@ -369,7 +374,7 @@ namespace DocNanzDCMS
 
         public void saveUserAccount()
         {
-            databaseConnection.saveUserAccount(user, ActiveUser);
+            DatabaseConnection.saveUserAccount(user, ActiveUser);
         }
 
         public void cancelUserUpdate()

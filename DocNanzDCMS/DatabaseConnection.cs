@@ -11,8 +11,10 @@ namespace DocNanzDCMS
     {
         private MySqlConnection connection;
         private Thread saveThread;
+        private Thread checkThread;
         private User user;
         private User activeUser;
+        private NewUserAccountViewModel newUserAccountViewModel;
 
         public DatabaseConnection()
         {
@@ -32,6 +34,7 @@ namespace DocNanzDCMS
         public MySqlConnection Connection { get => connection; set => connection = value; }
         public User User { get => user; set => user = value; }
         public User ActiveUser { get => activeUser; set => activeUser = value; }
+        public NewUserAccountViewModel NewUserAccountViewModel { get => newUserAccountViewModel; set => newUserAccountViewModel = value; }
 
         public void saveUserAccount(User user, User activeUser)
         {
@@ -45,22 +48,54 @@ namespace DocNanzDCMS
             }
         }
 
+        public void checkUserAccount(NewUserAccountViewModel newUserAccountViewModel)
+        {
+            this.newUserAccountViewModel = newUserAccountViewModel;
+            if (checkThread == null || !checkThread.IsAlive)
+            {
+                checkThread = new Thread(startCheckingUserAccount);
+                checkThread.IsBackground = true;
+                checkThread.Start();
+            }
+        }
+
+        private void startCheckingUserAccount()
+        {
+            try
+            {
+                MySqlCommand checkCommand = connection.CreateCommand();
+                checkCommand.CommandText = "SELECT account_id FROM docnanz_useraccounts WHERE account_id=@username";
+                checkCommand.Parameters.AddWithValue("@username", NewUserAccountViewModel.Username);
+                checkCommand.Prepare();
+                MySqlDataReader checkReader = checkCommand.ExecuteReader();
+                if (checkReader.Read())
+                {
+                    NewUserAccountViewModel.UsernameError = "Username already taken!";
+                }
+                checkReader.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
+        }
+
         private void startSavingUserAccount()
         {
             try
             {
                 MySqlCommand checkCommand = connection.CreateCommand();
-                checkCommand.CommandText = "SELECT account_id FROM docnanz_useraccounts where account_id=@username";
+                checkCommand.CommandText = "SELECT account_id FROM docnanz_useraccounts WHERE account_id=@username";
                 checkCommand.Parameters.AddWithValue("@username", user.Username);
                 checkCommand.Prepare();
                 MySqlDataReader checkReader = checkCommand.ExecuteReader();
                 if(checkReader.Read())
                 {
-                    checkReader.Close();
                 }
                 else
                 {
-                    checkReader.Close();
                     MySqlCommand saveCommand = connection.CreateCommand();
                     saveCommand.CommandText = "INSERT INTO docnanz_useraccounts VALUES (NULL, " +
                         "@ID, @password, @type, @question1, @question2, @answer1, @answer2, " +
@@ -88,6 +123,7 @@ namespace DocNanzDCMS
                     saveCommand.Prepare();
                     saveCommand.ExecuteNonQuery();
                 }
+                checkReader.Close();
             }
             catch(Exception e)
             {
