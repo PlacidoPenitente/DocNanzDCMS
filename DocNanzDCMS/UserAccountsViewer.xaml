@@ -26,5 +26,10 @@
         <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
         <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
         <DataGrid IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}"/>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
+            <Button Content="Add New User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Edit User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Delete User" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
