@@ -193,7 +193,7 @@ namespace DocNanzDCMS
                 {
                     UsernameError = "Username is required!";
                 }
-                else
+                else if(Username!=UserCopy.Username)
                 {
                     DatabaseConnection.checkUserAccount();
                 }
