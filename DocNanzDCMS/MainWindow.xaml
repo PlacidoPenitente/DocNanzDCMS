@@ -121,6 +121,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <local:UserAccountsViewer Grid.Column="1"/>
+        <local:NewUserAccount Grid.Column="1"/>
     </Grid>
 </Window>
