@@ -9,7 +9,7 @@ namespace DocNanzDCMS
     {
         private string username;
         private string password;
-        private string accountType;
+        private string accountType = "Standard";
         private string question1;
         private string question2;
         private string answer1;

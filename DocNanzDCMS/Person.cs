@@ -11,7 +11,7 @@ namespace DocNanzDCMS
         private string middleName;
         private string lastName;
         private string age;
-        private string gender;
+        private string gender = "Male";
         private DateTime birthdate = DateTime.Now;
         private string address;
         private string email;

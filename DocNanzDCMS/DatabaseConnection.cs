@@ -78,7 +78,7 @@ namespace DocNanzDCMS
                     saveCommand.Parameters.AddWithValue("@firstname", user.FirstName);
                     saveCommand.Parameters.AddWithValue("@middlename", user.MiddleName);
                     saveCommand.Parameters.AddWithValue("@lastname", user.LastName);
-                    saveCommand.Parameters.AddWithValue("@gender", user.Username);
+                    saveCommand.Parameters.AddWithValue("@gender", user.Gender);
                     saveCommand.Parameters.AddWithValue("@birthdate", user.Birthdate);
                     saveCommand.Parameters.AddWithValue("@address", user.Address);
                     saveCommand.Parameters.AddWithValue("@email", user.Email);
