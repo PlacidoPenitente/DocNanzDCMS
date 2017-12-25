@@ -76,6 +76,10 @@
     <Compile Include="Tooth.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserAccountsViewer.xaml.cs">
+      <DependentUpon>UserAccountsViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountsViewerViewModel.cs" />
     <Page Include="ColorDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserAccountsViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
