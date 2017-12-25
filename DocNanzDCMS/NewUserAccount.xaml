@@ -44,7 +44,7 @@
             <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FirstNameError}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
             <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding MiddleNameError}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
             <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding LastNameError}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
-            
+
             <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
                 <ComboBoxItem Content="Male"/>
                 <ComboBoxItem Content="Female"/>
@@ -67,7 +67,7 @@
             <TextBox Grid.Column="0" local:AttachedProperties.Error="{Binding Question2Error}" Text="{Binding Question2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.ColumnSpan="2" local:AttachedProperties.Label="Security Question No. 2:" Style="{StaticResource TextBox}"/>
             <TextBox Width="200" local:AttachedProperties.Error="{Binding Answer2Error}" Grid.Column="2" Text="{Binding Answer2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" local:AttachedProperties.Label="Answer:" Style="{StaticResource TextBox}"/>
 
-            <ComboBox Grid.Column="0" Grid.Row="7" Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding AccountType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Account Type:" local:AttachedProperties.Error="">
+            <ComboBox Grid.Column="0" Grid.Row="7" Width="200" SelectedIndex="0" Style="{StaticResource ComboBox}" Text="{Binding AccountType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Account Type:" local:AttachedProperties.Error="">
                 <ComboBoxItem Content="Standard"/>
                 <ComboBoxItem Content="Administrator"/>
             </ComboBox>

@@ -34,25 +34,44 @@ namespace DocNanzDCMS
 
         public NewUserAccountViewModel()
         {
-            this.user = new User();
-            this.userCopy = (User)this.user.Clone();
+            this.user = new User()
+            {
+                FirstName = "Jay Mark",
+                MiddleName = "Paredes",
+                LastName = "Estrera",
+                Gender = "Male",
+                Birthdate = DateTime.Parse("06/15/1995"),
+                Age = "22",
+                Address = "Pasig City",
+                Email = "estrerajaymark@ymail.com",
+                ContactNo = "09568032571",
+                Question1 = "Question no. 1",
+                Question2 = "Question no. 2",
+                Answer1 = "Answer no. 1",
+                Answer2 = "Answer no. 2",
+                Username = "admin",
+                Password = "admin",
+                AccountType = "Administrator",
+                Image = "sample.jpg"
+            };
+            this.userCopy = (User)this.User.Clone();
             this.activeUser = new User();
-            activeUser.Username = "leonard";
-            this.DatabaseConnection = new DatabaseConnection();
+            this.activeUser.Username = "leonard";
+            this.DatabaseConnection = new DatabaseConnection(this);
         }
 
         public String Age
         {
-            get => user.Age; set
+            get => User.Age; set
             {
-                user.Age = value;
+                User.Age = value;
                 OnPropertyChanged("Age");
             }
         }
 
-        public string FirstName { get => user.FirstName; set
+        public string FirstName { get => User.FirstName; set
             {
-                user.FirstName = value;
+                User.FirstName = value;
                 FirstNameError = "";
                 if(value.Trim().Length<1)
                 {
@@ -62,9 +81,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string MiddleName { get => user.MiddleName; set
+        public string MiddleName { get => User.MiddleName; set
             {
-                user.MiddleName = value;
+                User.MiddleName = value;
                 MiddleNameError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -74,9 +93,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string LastName { get => user.LastName; set
+        public string LastName { get => User.LastName; set
             {
-                user.LastName = value;
+                User.LastName = value;
                 LastNameError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -86,9 +105,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public DateTime Birthdate { get => user.Birthdate; set
+        public DateTime Birthdate { get => User.Birthdate; set
             {
-                user.Birthdate = value;
+                User.Birthdate = value;
                 AgeError = "";
                 int age = DateTime.Now.Year - value.Year;
 
@@ -107,9 +126,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Address { get => user.Address; set
+        public string Address { get => User.Address; set
             {
-                user.Address = value;
+                User.Address = value;
                 AddressError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -119,9 +138,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Email { get => user.Email; set
+        public string Email { get => User.Email; set
             {
-                user.Email = value;
+                User.Email = value;
                 EmailAddressError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -131,9 +150,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string ContactNo { get => user.ContactNo; set
+        public string ContactNo { get => User.ContactNo; set
             {
-                user.ContactNo = value;
+                User.ContactNo = value;
                 ContactNoError = "";
 
                 if (ContactNo.Trim().Length<1)
@@ -152,23 +171,23 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Image { get => user.Image; set
+        public string Image { get => User.Image; set
             {
-                user.Image = value;
+                User.Image = value;
                 OnPropertyChanged("Image");
             }
         }
 
-        public string Gender { get => user.Gender; set
+        public string Gender { get => User.Gender; set
             {
-                user.Gender = value;
+                User.Gender = value;
                 OnPropertyChanged("Gender");
             }
         }
 
-        public string Username { get => user.Username; set
+        public string Username { get => User.Username; set
             {
-                user.Username = value;
+                User.Username = value;
                 UsernameError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -176,15 +195,15 @@ namespace DocNanzDCMS
                 }
                 else
                 {
-                    DatabaseConnection.checkUserAccount(this);
+                    DatabaseConnection.checkUserAccount();
                 }
                 OnPropertyChanged("Username");
             }
         }
 
-        public string Password { get => user.Password; set
+        public string Password { get => User.Password; set
             {
-                user.Password = value;
+                User.Password = value;
                 PasswordError = "";
                 if (value.Trim().Length < 1)
                 {
@@ -195,16 +214,16 @@ namespace DocNanzDCMS
             }
         }
 
-        public string AccountType { get => user.AccountType; set
+        public string AccountType { get => User.AccountType; set
             {
-                user.AccountType = value;
+                User.AccountType = value;
                 OnPropertyChanged("AccountType");
             }
         }
 
-        public string Question1 { get => user.Question1; set
+        public string Question1 { get => User.Question1; set
             {
-                user.Question1 = value;
+                User.Question1 = value;
                 Question1Error = "";
                 if (value.Trim().Length < 1)
                 {
@@ -214,9 +233,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Question2 { get => user.Question2; set
+        public string Question2 { get => User.Question2; set
             {
-                user.Question2 = value;
+                User.Question2 = value;
                 Question2Error = "";
                 if (value.Trim().Length < 1)
                 {
@@ -226,9 +245,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Answer1 { get => user.Answer1; set
+        public string Answer1 { get => User.Answer1; set
             {
-                user.Answer1 = value;
+                User.Answer1 = value;
                 Answer1Error = "";
                 if (value.Trim().Length < 1)
                 {
@@ -238,9 +257,9 @@ namespace DocNanzDCMS
             }
         }
 
-        public string Answer2 { get => user.Answer2; set
+        public string Answer2 { get => User.Answer2; set
             {
-                user.Answer2 = value;
+                User.Answer2 = value;
                 Answer2Error = "";
                 if (value.Trim().Length < 1)
                 {
@@ -357,6 +376,7 @@ namespace DocNanzDCMS
         public User ActiveUser { get => activeUser; set => activeUser = value; }
         public DatabaseConnection DatabaseConnection { get => databaseConnection; set => databaseConnection = value; }
         public User UserCopy { get => userCopy; set => userCopy = value; }
+        public User User { get => user; set => user = value; }
 
         public void OnPropertyChanged(string propertyName)
         {
@@ -377,7 +397,7 @@ namespace DocNanzDCMS
 
         public void saveUserAccount()
         {
-            DatabaseConnection.saveUserAccount(user, ActiveUser);
+            DatabaseConnection.saveUserAccount();
         }
 
         public void cancelUserUpdate()
