@@ -382,7 +382,23 @@ namespace DocNanzDCMS
 
         public void cancelUserUpdate()
         {
-            
+            FirstName = UserCopy.FirstName;
+            MiddleName = UserCopy.MiddleName;
+            LastName = UserCopy.LastName;
+            Birthdate = UserCopy.Birthdate;
+            Address = UserCopy.Address;
+            Email = UserCopy.Email;
+            ContactNo = UserCopy.ContactNo;
+            Image = UserCopy.Image;
+            Gender = UserCopy.Gender;
+            Age = UserCopy.Age;
+            Username = UserCopy.Username;
+            Password = UserCopy.Password;
+            AccountType = UserCopy.AccountType;
+            Question1 = UserCopy.Question1;
+            Question2 = UserCopy.Question2;
+            Answer1 = UserCopy.Answer1;
+            Answer2 = UserCopy.Answer2;
         }
     }
 }
