@@ -12,6 +12,7 @@ namespace DocNanzDCMS
     {
         private DatabaseConnection databaseConnection;
         private User user;
+        private User userCopy;
         private User activeUser;
         private OpenFileDialog openFileDialog;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -34,6 +35,7 @@ namespace DocNanzDCMS
         public NewUserAccountViewModel()
         {
             this.user = new User();
+            this.userCopy = (User)this.user.Clone();
             this.activeUser = new User();
             activeUser.Username = "leonard";
             this.DatabaseConnection = new DatabaseConnection();
@@ -354,6 +356,7 @@ namespace DocNanzDCMS
 
         public User ActiveUser { get => activeUser; set => activeUser = value; }
         public DatabaseConnection DatabaseConnection { get => databaseConnection; set => databaseConnection = value; }
+        public User UserCopy { get => userCopy; set => userCopy = value; }
 
         public void OnPropertyChanged(string propertyName)
         {
