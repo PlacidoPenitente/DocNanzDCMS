@@ -55,32 +55,43 @@ namespace DocNanzDCMS
 
         private void startGettingUserAccounts()
         {
-            MySqlCommand getCommand = connection.CreateCommand();
-            getCommand.CommandText = "SELECT * FROM docnanz_useraccounts";
-            MySqlDataReader reader = getCommand.ExecuteReader();
-            while(reader.Read())
+            try
             {
-                int age = DateTime.Now.Year - DateTime.Parse(reader.GetString("account_birthdate")).Year;
+                MySqlCommand getCommand = connection.CreateCommand();
+                getCommand.CommandText = "SELECT * FROM docnanz_useraccounts";
+                MySqlDataReader usersReader = getCommand.ExecuteReader();
+                while (usersReader.Read())
+                {
+                    int age = DateTime.Now.Year - DateTime.Parse(usersReader.GetString("account_birthdate")).Year;
 
-                if (DateTime.Now.Month < DateTime.Parse(reader.GetString("account_birthdate")).Month || (DateTime.Now.Month == DateTime.Parse(reader.GetString("account_birthdate")).Month && DateTime.Now.Day < DateTime.Parse(reader.GetString("account_birthdate")).Day))
-                {
-                    age--;
+                    if (DateTime.Now.Month < DateTime.Parse(usersReader.GetString("account_birthdate")).Month || (DateTime.Now.Month == DateTime.Parse(usersReader.GetString("account_birthdate")).Month && DateTime.Now.Day < DateTime.Parse(usersReader.GetString("account_birthdate")).Day))
+                    {
+                        age--;
+                    }
+                    User user = new User()
+                    {
+                        FirstName = usersReader.GetString("account_firstname"),
+                        MiddleName = usersReader.GetString("account_middlename"),
+                        LastName = usersReader.GetString("account_lastname"),
+                        Birthdate = DateTime.Parse(usersReader.GetString("account_birthdate")),
+                        Address = usersReader.GetString("account_address"),
+                        Email = usersReader.GetString("account_emailaddress"),
+                        ContactNo = usersReader.GetString("account_contactno"),
+                        Username = usersReader.GetString("account_id"),
+                        AccountType = usersReader.GetString("account_type"),
+                        Image = usersReader.GetString("account_image"),
+                        Age = age.ToString()
+                    };
+                    UserAccountsViewerViewModel.Users.Add(user);
                 }
-                UserPrivate userPrivate = new UserPrivate()
-                {
-                    FirstName = reader.GetString("account_firstname"),
-                    MiddleName = reader.GetString("account_middlename"),
-                    LastName = reader.GetString("account_lastname"),
-                    Birthdate = DateTime.Parse(reader.GetString("account_birthdate")),
-                    Address = reader.GetString("account_address"),
-                    Email = reader.GetString("account_emailaddress"),
-                    ContactNo = reader.GetString("account_contactno"),
-                    Username = reader.GetString("account_id"),
-                    AccountType = reader.GetString("account_type"),
-                    Image = reader.GetString("account_image"),
-                    Age = age.ToString()
-                };
-                UserAccountsViewerViewModel.Users.Add(userPrivate);
+                usersReader.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("GetUsers Thread");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
             }
         }
 

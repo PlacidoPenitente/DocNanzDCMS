@@ -25,7 +25,21 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
         <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
-        <DataGrid IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}"/>
+        <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}" Template="{DynamicResource DataGridControlTemplate1}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Account Type" Binding="{Binding AccountType}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="Birthdate" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Email Address" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Contact No." Binding="{Binding ContactNo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
             <Button Content="Add New User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
             <Button Content="Edit User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
