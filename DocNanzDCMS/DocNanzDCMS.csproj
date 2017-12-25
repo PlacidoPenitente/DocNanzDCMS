@@ -80,6 +80,7 @@
       <DependentUpon>UserAccountsViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAccountsViewerViewModel.cs" />
+    <Compile Include="UserPrivate.cs" />
     <Page Include="ColorDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

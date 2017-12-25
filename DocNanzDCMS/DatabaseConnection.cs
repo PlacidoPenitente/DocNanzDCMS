@@ -12,17 +12,30 @@ namespace DocNanzDCMS
         private MySqlConnection connection;
         private Thread saveThread;
         private Thread checkThread;
+        private Thread getUsersThread;
         private NewUserAccountViewModel newUserAccountViewModel;
+        private UserAccountsViewerViewModel userAccountsViewerViewModel;
 
         public DatabaseConnection(NewUserAccountViewModel newUserAccountViewModel)
         {
             this.newUserAccountViewModel = newUserAccountViewModel;
+            createConnection();
+        }
+
+        public DatabaseConnection(UserAccountsViewerViewModel userAccountsViewerViewModel)
+        {
+            this.userAccountsViewerViewModel = userAccountsViewerViewModel;
+            createConnection();
+        }
+
+        private void createConnection()
+        {
             try
             {
                 connection = new MySqlConnection("server=localhost; user=docnanz; password=docnanz; database=docnanz_database");
                 connection.Open();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine(e.Message);
@@ -30,8 +43,50 @@ namespace DocNanzDCMS
             }
         }
 
+        public void getUserAccounts()
+        {
+            if (getUsersThread == null || !getUsersThread.IsAlive)
+            {
+                getUsersThread = new Thread(startGettingUserAccounts);
+                getUsersThread.IsBackground = true;
+                getUsersThread.Start();
+            }
+        }
+
+        private void startGettingUserAccounts()
+        {
+            MySqlCommand getCommand = connection.CreateCommand();
+            getCommand.CommandText = "SELECT * FROM docnanz_useraccounts";
+            MySqlDataReader reader = getCommand.ExecuteReader();
+            while(reader.Read())
+            {
+                int age = DateTime.Now.Year - DateTime.Parse(reader.GetString("account_birthdate")).Year;
+
+                if (DateTime.Now.Month < DateTime.Parse(reader.GetString("account_birthdate")).Month || (DateTime.Now.Month == DateTime.Parse(reader.GetString("account_birthdate")).Month && DateTime.Now.Day < DateTime.Parse(reader.GetString("account_birthdate")).Day))
+                {
+                    age--;
+                }
+                UserPrivate userPrivate = new UserPrivate()
+                {
+                    FirstName = reader.GetString("account_firstname"),
+                    MiddleName = reader.GetString("account_middlename"),
+                    LastName = reader.GetString("account_lastname"),
+                    Birthdate = DateTime.Parse(reader.GetString("account_birthdate")),
+                    Address = reader.GetString("account_address"),
+                    Email = reader.GetString("account_emailaddress"),
+                    ContactNo = reader.GetString("account_contactno"),
+                    Username = reader.GetString("account_id"),
+                    AccountType = reader.GetString("account_type"),
+                    Image = reader.GetString("account_image"),
+                    Age = age.ToString()
+                };
+                UserAccountsViewerViewModel.Users.Add(userPrivate);
+            }
+        }
+
         public MySqlConnection Connection { get => connection; set => connection = value; }
         public NewUserAccountViewModel NewUserAccountViewModel { get => newUserAccountViewModel; set => newUserAccountViewModel = value; }
+        public UserAccountsViewerViewModel UserAccountsViewerViewModel { get => userAccountsViewerViewModel; set => userAccountsViewerViewModel = value; }
 
         public void saveUserAccount()
         {

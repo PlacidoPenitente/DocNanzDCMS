@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
+    <UserControl.DataContext>
+        <local:UserAccountsViewerViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -22,6 +25,6 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
         <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
-        <DataGrid Grid.Column="1" Grid.Row="1"/>
+        <DataGrid IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}"/>
     </Grid>
 </UserControl>
