@@ -60,7 +60,6 @@
     <Compile Include="Appointment.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Condition.cs" />
-    <Compile Include="DateToAgeConverter.cs" />
     <Compile Include="DentalChart.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MedicalHistory.cs" />
