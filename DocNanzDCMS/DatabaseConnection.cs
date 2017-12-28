@@ -17,10 +17,17 @@ namespace DocNanzDCMS
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
+        private PatientsViewerViewModel patientsViewerViewModel;
 
         public DatabaseConnection(NewUserAccountViewModel newUserAccountViewModel)
         {
             this.newUserAccountViewModel = newUserAccountViewModel;
+            createConnection();
+        }
+
+        public DatabaseConnection(PatientsViewerViewModel patientsViewerViewModel)
+        {
+            this.patientsViewerViewModel = patientsViewerViewModel;
             createConnection();
         }
 

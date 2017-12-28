@@ -67,6 +67,10 @@
     </Compile>
     <Compile Include="NewPatientViewModel.cs" />
     <Compile Include="Patient.cs" />
+    <Compile Include="PatientsViewer.xaml.cs">
+      <DependentUpon>PatientsViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientsViewerViewModel.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Procedure.cs" />
     <Compile Include="Tooth.cs" />
@@ -106,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewUserAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientsViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

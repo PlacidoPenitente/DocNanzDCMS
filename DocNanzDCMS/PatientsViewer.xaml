@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="DocNanzDCMS.PatientsViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DocNanzDCMS"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1024">
+    <UserControl.DataContext>
+        <local:PatientsViewerViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Background="{StaticResource Blue}" Orientation="Horizontal">
+            <Label Foreground="White" FontFamily="Century Gothic" VerticalAlignment="Center" FontSize="18" Content="Doc Nanz Patients"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" FrozenColumnCount="3" HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}" Template="{DynamicResource DataGridControlTemplate1}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Username" Binding="{Binding Username}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Middle Name" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Account Type" Binding="{Binding AccountType}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Gender" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Age" Binding="{Binding Age}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Birthdate" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Email Address" Binding="{Binding Email}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Contact No." Binding="{Binding ContactNo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
+            <Button Content="Add New User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Edit User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Filter" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Delete User" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
