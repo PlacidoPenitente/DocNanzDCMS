@@ -598,7 +598,7 @@ namespace DocNanzDCMS
 
         public void saveUserAccount()
         {
-            DatabaseConnection.saveUserAccount();
+            DatabaseConnection.savePatient();
         }
 
         public void cancelUserUpdate()

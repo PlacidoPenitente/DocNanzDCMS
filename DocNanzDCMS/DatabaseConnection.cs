@@ -10,9 +10,10 @@ namespace DocNanzDCMS
     public class DatabaseConnection
     {
         private MySqlConnection connection;
-        private Thread saveThread;
+        private Thread saveUserThread;
         private Thread checkThread;
         private Thread getUsersThread;
+        private Thread savePatientThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
@@ -108,11 +109,11 @@ namespace DocNanzDCMS
 
         public void saveUserAccount()
         {
-            if (saveThread==null||!saveThread.IsAlive)
+            if (saveUserThread==null||!saveUserThread.IsAlive)
             {
-                saveThread = new Thread(startSavingUserAccount);
-                saveThread.IsBackground = true;
-                saveThread.Start();
+                saveUserThread = new Thread(startSavingUserAccount);
+                saveUserThread.IsBackground = true;
+                saveUserThread.Start();
             }
         }
 
@@ -208,6 +209,21 @@ namespace DocNanzDCMS
                 Console.WriteLine(e.Message);
                 Console.WriteLine("-------------------------------------------------------------");
             }
+        }
+
+        public void savePatient()
+        {
+            if (savePatientThread == null || !savePatientThread.IsAlive)
+            {
+                savePatientThread = new Thread(startSavingPatient);
+                savePatientThread.IsBackground = true;
+                savePatientThread.Start();
+            }
+        }
+
+        private void startSavingPatient()
+        {
+            Console.WriteLine("Hello");
         }
     }
 }
