@@ -121,6 +121,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <local:NewUserAccount Grid.Column="1"/>
+        <local:NewPatient Grid.Column="1"/>
     </Grid>
 </Window>
