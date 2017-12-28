@@ -7,6 +7,7 @@ namespace DocNanzDCMS
 {
     public class Patient : Person, ICloneable
     {
+        private string patientNo = "";
         private string religion = "Roman Catholic";
         private string nationality = "Filipino";
         private string nickname = "Potenciano";
@@ -46,6 +47,7 @@ namespace DocNanzDCMS
         public string DentalInsurance { get => dentalInsurance; set => dentalInsurance = value; }
         public DateTime EffectiveDate { get => effectiveDate; set => effectiveDate = value; }
         public string Referee { get => referee; set => referee = value; }
+        public string PatientNo { get => patientNo; set => patientNo = value; }
 
         public object Clone()
         {
@@ -76,6 +78,7 @@ namespace DocNanzDCMS
             patient.DentalChart = DentalChart;
             patient.MedicalHistory = MedicalHistory;
             patient.Image = Image;
+            patient.PatientNo = PatientNo;
             return patient;
         }
     }

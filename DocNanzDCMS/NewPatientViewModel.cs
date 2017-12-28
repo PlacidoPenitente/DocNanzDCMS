@@ -44,6 +44,11 @@ namespace DocNanzDCMS
             databaseConnection = new DatabaseConnection(this);
         }
 
+        public string PatientNo
+        {
+            get => Patient.PatientNo; set => Patient.PatientNo = value;
+        }
+
         public string Age
         {
             get => Patient.Age; set

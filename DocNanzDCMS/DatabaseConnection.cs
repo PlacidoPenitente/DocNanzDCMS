@@ -223,7 +223,7 @@ namespace DocNanzDCMS
 
         private void startSavingPatient()
         {
-            Console.WriteLine("Hello");
+            
         }
     }
 }
