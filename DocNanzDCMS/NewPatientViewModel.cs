@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace DocNanzDCMS
     public class NewPatientViewModel : INotifyPropertyChanged
     {
         private Patient patient;
+        private Patient patientCopy;
+        private OpenFileDialog openFileDialog;
+        private DatabaseConnection databaseConnection;
         public event PropertyChangedEventHandler PropertyChanged;
         private string ageError;
         private string contactNoError;
@@ -36,6 +40,8 @@ namespace DocNanzDCMS
         public NewPatientViewModel()
         {
             patient = new Patient();
+            patientCopy = (Patient)patient.Clone();
+            databaseConnection = new DatabaseConnection(this);
         }
 
         public string Age
@@ -552,10 +558,43 @@ namespace DocNanzDCMS
             }
         }
 
+        public Patient PatientCopy { get => patientCopy; set => patientCopy = value; }
+        public DatabaseConnection DatabaseConnection { get => databaseConnection; set => databaseConnection = value; }
+
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             Console.WriteLine(propertyName);
+        }
+
+        public string browsePhoto()
+        {
+            if (openFileDialog == null)
+            {
+                openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg)|*.jpg";
+            }
+            openFileDialog.ShowDialog();
+            return openFileDialog.FileName;
+        }
+
+        public void saveUserAccount()
+        {
+            DatabaseConnection.saveUserAccount();
+        }
+
+        public void cancelUserUpdate()
+        {
+            FirstName = PatientCopy.FirstName;
+            MiddleName = PatientCopy.MiddleName;
+            LastName = PatientCopy.LastName;
+            Birthdate = PatientCopy.Birthdate;
+            Address = PatientCopy.Address;
+            Email = PatientCopy.Email;
+            ContactNo = PatientCopy.ContactNo;
+            Image = PatientCopy.Image;
+            Gender = PatientCopy.Gender;
+            Age = PatientCopy.Age;
         }
     }
 }

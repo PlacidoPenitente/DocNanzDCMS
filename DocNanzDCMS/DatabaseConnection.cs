@@ -15,6 +15,7 @@ namespace DocNanzDCMS
         private Thread getUsersThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
+        private NewPatientViewModel newPatientViewModel;
 
         public DatabaseConnection(NewUserAccountViewModel newUserAccountViewModel)
         {
@@ -25,6 +26,12 @@ namespace DocNanzDCMS
         public DatabaseConnection(UserAccountsViewerViewModel userAccountsViewerViewModel)
         {
             this.userAccountsViewerViewModel = userAccountsViewerViewModel;
+            createConnection();
+        }
+
+        public DatabaseConnection(NewPatientViewModel newPatientViewModel)
+        {
+            this.newPatientViewModel = newPatientViewModel;
             createConnection();
         }
 

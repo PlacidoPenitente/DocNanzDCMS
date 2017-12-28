@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DocNanzDCMS
 {
-    public class Patient : Person
+    public class Patient : Person, ICloneable
     {
         private string religion = "Roman Catholic";
         private string nationality = "Filipino";
@@ -46,5 +46,34 @@ namespace DocNanzDCMS
         public string DentalInsurance { get => dentalInsurance; set => dentalInsurance = value; }
         public DateTime EffectiveDate { get => effectiveDate; set => effectiveDate = value; }
         public string Referee { get => referee; set => referee = value; }
+
+        public object Clone()
+        {
+            Patient patient = new Patient();
+            patient.FirstName = FirstName;
+            patient.LastName = LastName;
+            patient.MiddleName = MiddleName;
+            patient.Birthdate = Birthdate;
+            patient.Age = Age;
+            patient.Gender = Gender;
+            patient.Religion = Religion;
+            patient.Nationality = Nationality;
+            patient.Address = Address;
+            patient.HomeNo = HomeNo;
+            patient.Occupation = Occupation;
+            patient.OfficeNo = OfficeNo;
+            patient.DentalInsurance = DentalInsurance;
+            patient.FaxNo = FaxNo;
+            patient.EffectiveDate = EffectiveDate;
+            patient.ContactNo = ContactNo;
+            patient.GuardianName = GuardianName;
+            patient.Email = Email;
+            patient.GuardianOccupation = GuardianOccupation;
+            patient.Referee = Referee;
+            patient.ConsultationReason = ConsultationReason;
+            patient.PreviousDentist = PreviousDentist;
+            patient.LastDentalVisit = LastDentalVisit;
+            return patient;
+        }
     }
 }

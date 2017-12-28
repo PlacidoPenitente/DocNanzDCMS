@@ -26,20 +26,20 @@ namespace DocNanzDCMS
 
         private void TextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
-            ((TextBox)sender).Text = newUserAccountViewModel.browsePhoto();
+            NewPatientViewModel newPatientViewModel = (NewPatientViewModel)DataContext;
+            ((TextBox)sender).Text = newPatientViewModel.browsePhoto();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NewUserAccountViewModel newUserAccountViewModel = (NewUserAccountViewModel)DataContext;
+            NewPatientViewModel newPatientViewModel = (NewPatientViewModel)DataContext;
             if (((Button)sender).Content.Equals("Proceed"))
             {
-                newUserAccountViewModel.saveUserAccount();
+                newPatientViewModel.saveUserAccount();
             }
             else if (((Button)sender).Content.Equals("Cancel"))
             {
-                newUserAccountViewModel.cancelUserUpdate();
+                newPatientViewModel.cancelUserUpdate();
             }
         }
     }
