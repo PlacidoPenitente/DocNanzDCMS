@@ -446,21 +446,111 @@ namespace DocNanzDCMS
         }
 
         public Patient Patient { get => patient; set => patient = value; }
-        public string ReligionError { get => religionError; set => religionError = value; }
-        public string NationalityError { get => nationalityError; set => nationalityError = value; }
-        public string NicknameError { get => nicknameError; set => nicknameError = value; }
-        public string HomeNoError { get => homeNoError; set => homeNoError = value; }
-        public string OfficeNoError { get => officeNoError; set => officeNoError = value; }
-        public string FaxNoError { get => faxNoError; set => faxNoError = value; }
-        public string DentalInsuranceError { get => dentalInsuranceError; set => dentalInsuranceError = value; }
-        public string EffectiveDateError { get => effectiveDateError; set => effectiveDateError = value; }
-        public string OccupationError { get => occupationError; set => occupationError = value; }
-        public string GuradianNameError { get => guradianNameError; set => guradianNameError = value; }
-        public string GuardianOccupationError { get => guardianOccupationError; set => guardianOccupationError = value; }
-        public string ConsulationReasonError { get => consulationReasonError; set => consulationReasonError = value; }
-        public string PreviousDentistError { get => previousDentistError; set => previousDentistError = value; }
-        public string LastDentalVisitError { get => lastDentalVisitError; set => lastDentalVisitError = value; }
-        public string RefereeError { get => refereeError; set => refereeError = value; }
+        public string ReligionError {
+            get => religionError; set
+            {
+                religionError = value;
+                OnPropertyChanged("ReligionError");
+            }
+        }
+        public string NationalityError {
+            get => nationalityError; set
+            {
+                nationalityError = value;
+                OnPropertyChanged("NationalityError");
+            }
+        }
+        public string NicknameError {
+            get => nicknameError; set
+            {
+                nicknameError = value;
+                OnPropertyChanged("NicknameError");
+            }
+        }
+        public string HomeNoError {
+            get => homeNoError; set
+            {
+                homeNoError = value;
+                OnPropertyChanged("HomeNoError");
+            }
+        }
+        public string OfficeNoError {
+            get => officeNoError; set
+            {
+                officeNoError = value;
+                OnPropertyChanged("OfficeNoError");
+            }
+        }
+        public string FaxNoError {
+            get => faxNoError; set
+            {
+                faxNoError = value;
+                OnPropertyChanged("FaxNoError");
+            }
+        }
+        public string DentalInsuranceError {
+            get => dentalInsuranceError; set
+            {
+                dentalInsuranceError = value;
+                OnPropertyChanged("DentalInsuranceError");
+            }
+        }
+        public string EffectiveDateError {
+            get => effectiveDateError; set
+            {
+                effectiveDateError = value;
+                OnPropertyChanged("EffectiveDateError");
+            }
+        }
+        public string OccupationError {
+            get => occupationError; set
+            {
+                occupationError = value;
+                OnPropertyChanged("OccupationError");
+            }
+        }
+        public string GuradianNameError {
+            get => guradianNameError; set
+            {
+                guradianNameError = value;
+                OnPropertyChanged("GuardianNameError");
+            }
+        }
+        public string GuardianOccupationError {
+            get => guardianOccupationError; set
+            {
+                guardianOccupationError = value;
+                OnPropertyChanged("GuardianOccupationError");
+            }
+        }
+        public string ConsulationReasonError {
+            get => consulationReasonError; set
+            {
+                consulationReasonError = value;
+                OnPropertyChanged("ConsulationReasonError");
+            }
+        }
+        public string PreviousDentistError {
+            get => previousDentistError; set
+            {
+                previousDentistError = value;
+                OnPropertyChanged("PreviousDentistError");
+            }
+        }
+        public string LastDentalVisitError {
+            get => lastDentalVisitError; set
+            {
+                lastDentalVisitError = value;
+                OnPropertyChanged("LastDentalVisitError");
+            }
+        }
+        public string RefereeError {
+            get => refereeError; set
+            {
+                refereeError = value;
+                OnPropertyChanged("RefereeError");
+            }
+        }
 
         public void OnPropertyChanged(string propertyName)
         {
