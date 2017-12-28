@@ -28,7 +28,7 @@ namespace DocNanzDCMS
         private string occupationError;
         private string guradianNameError;
         private string guardianOccupationError;
-        private string refereeeError;
+        private string refereeError;
         private string consulationReasonError;
         private string previousDentistError;
         private string lastDentalVisitError;
@@ -65,7 +65,7 @@ namespace DocNanzDCMS
                 PreviousDentistError = "";
                 if (value.Trim().Length < 1)
                 {
-                    RefereeeError = "Previous Dentist's Name is required!";
+                    Referee = "Previous Dentist's Name is required!";
                 }
                 OnPropertyChanged("PreviousDentist");
             }
@@ -73,13 +73,13 @@ namespace DocNanzDCMS
 
         public string Referee
         {
-            get => Patient.Referree; set
+            get => Patient.Referee; set
             {
-                Patient.Referree = value;
-                RefereeeError = "";
+                Patient.Referee = value;
+                RefereeError = "";
                 if (value.Trim().Length < 1)
                 {
-                    RefereeeError = "Referee's Name is required!";
+                    Referee = "Referee's Name is required!";
                 }
                 OnPropertyChanged("Referee");
             }
@@ -457,10 +457,10 @@ namespace DocNanzDCMS
         public string OccupationError { get => occupationError; set => occupationError = value; }
         public string GuradianNameError { get => guradianNameError; set => guradianNameError = value; }
         public string GuardianOccupationError { get => guardianOccupationError; set => guardianOccupationError = value; }
-        public string RefereeeError { get => refereeeError; set => refereeeError = value; }
         public string ConsulationReasonError { get => consulationReasonError; set => consulationReasonError = value; }
         public string PreviousDentistError { get => previousDentistError; set => previousDentistError = value; }
         public string LastDentalVisitError { get => lastDentalVisitError; set => lastDentalVisitError = value; }
+        public string RefereeError { get => refereeError; set => refereeError = value; }
 
         public void OnPropertyChanged(string propertyName)
         {

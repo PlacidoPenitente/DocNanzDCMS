@@ -18,7 +18,7 @@ namespace DocNanzDCMS
         private string faxNo = "12345";
         private string guardianName = "Daisy Estrera";
         private string guardianOccupation = "None";
-        private string referree = "None";
+        private string referee = "None";
         private string consultationReason = "Toothache";
         private string previousDentist = "Dr. Estrera";
         private string dentalInsurance = "Medicard";
@@ -35,7 +35,6 @@ namespace DocNanzDCMS
         public DateTime InsuranceDate { get => insuranceDate; set => insuranceDate = value; }
         public string GuardianName { get => guardianName; set => guardianName = value; }
         public string GuardianOccupation { get => guardianOccupation; set => guardianOccupation = value; }
-        public string Referree { get => referree; set => referree = value; }
         public string ConsultationReason { get => consultationReason; set => consultationReason = value; }
         public string PreviousDentist { get => previousDentist; set => previousDentist = value; }
         public DateTime LastDentalVisit { get => lastDentalVisit; set => lastDentalVisit = value; }
@@ -46,5 +45,6 @@ namespace DocNanzDCMS
         public string FaxNo { get => faxNo; set => faxNo = value; }
         public string DentalInsurance { get => dentalInsurance; set => dentalInsurance = value; }
         public DateTime EffectiveDate { get => effectiveDate; set => effectiveDate = value; }
+        public string Referee { get => referee; set => referee = value; }
     }
 }
