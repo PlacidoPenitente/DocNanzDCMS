@@ -67,6 +67,69 @@ namespace DocNanzDCMS
         private Tooth tooth84;
         private Tooth tooth85;
 
+        public DentalChart()
+        {
+            tooth11.Image = "";
+            tooth12.Image = "";
+            tooth13.Image = "";
+            tooth14.Image = "";
+            tooth15.Image = "";
+            tooth16.Image = "";
+            tooth17.Image = "";
+            tooth18.Image = "";
+
+            tooth21.Image = "";
+            tooth22.Image = "";
+            tooth23.Image = "";
+            tooth24.Image = "";
+            tooth25.Image = "";
+            tooth26.Image = "";
+            tooth27.Image = "";
+            tooth28.Image = "";
+
+            tooth31.Image = "";
+            tooth32.Image = "";
+            tooth33.Image = "";
+            tooth34.Image = "";
+            tooth35.Image = "";
+            tooth36.Image = "";
+            tooth37.Image = "";
+            tooth38.Image = "";
+
+            tooth41.Image = "";
+            tooth42.Image = "";
+            tooth43.Image = "";
+            tooth44.Image = "";
+            tooth45.Image = "";
+            tooth46.Image = "";
+            tooth47.Image = "";
+            tooth48.Image = "";
+
+            tooth51.Image = "";
+            tooth52.Image = "";
+            tooth53.Image = "";
+            tooth54.Image = "";
+            tooth55.Image = "";
+
+            tooth61.Image = "";
+            tooth62.Image = "";
+            tooth63.Image = "";
+            tooth64.Image = "";
+            tooth65.Image = "";
+
+            tooth71.Image = "";
+            tooth72.Image = "";
+            tooth73.Image = "";
+            tooth74.Image = "";
+            tooth75.Image = "";
+
+            tooth81.Image = "";
+            tooth82.Image = "";
+            tooth83.Image = "";
+            tooth84.Image = "";
+            tooth85.Image = "";
+        }
+
         public Tooth Tooth11 { get => tooth11; set => tooth11 = value; }
         public Tooth Tooth12 { get => tooth12; set => tooth12 = value; }
         public Tooth Tooth13 { get => tooth13; set => tooth13 = value; }
