@@ -7,7 +7,6 @@ namespace DocNanzDCMS
 {
     public class MedicalHistory
     {
-        private Patient patient;
         private string physicianName = "Yedda Marie Lingad";
         private string physicianSpecialty = "None";
         private string physicianAddress = "Mandaluyong City";
@@ -25,8 +24,7 @@ namespace DocNanzDCMS
         private string bloodType = "A";
         private string bloodPressure = "100/70";
         private List<string> diseases = new List<string>() {"High Blood Pressure", "Diabetes"};
-
-        public Patient Patient { get => patient; set => patient = value; }
+        
         public string PhysicianName { get => physicianName; set => physicianName = value; }
         public string PhysicianSpecialty { get => physicianSpecialty; set => physicianSpecialty = value; }
         public string PhysicianAddress { get => physicianAddress; set => physicianAddress = value; }

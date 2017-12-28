@@ -21,6 +21,8 @@ namespace DocNanzDCMS
         private string consultationReason = "Toothache";
         private string previousDentist = "Dr. Estrera";
         private DateTime lastDentalVisit = DateTime.Now;
+        private MedicalHistory medicalHistory;
+        private DentalChart dentalChart;
 
         public string Religion { get => religion; set => religion = value; }
         public string Nationality { get => nationality; set => nationality = value; }
@@ -36,5 +38,7 @@ namespace DocNanzDCMS
         public string ConsultationReason { get => consultationReason; set => consultationReason = value; }
         public string PreviousDentist { get => previousDentist; set => previousDentist = value; }
         public DateTime LastDentalVisit { get => lastDentalVisit; set => lastDentalVisit = value; }
+        public MedicalHistory MedicalHistory { get => medicalHistory; set => medicalHistory = value; }
+        public DentalChart DentalChart { get => dentalChart; set => dentalChart = value; }
     }
 }

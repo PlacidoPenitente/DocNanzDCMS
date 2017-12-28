@@ -7,5 +7,7 @@ namespace DocNanzDCMS
 {
     public class Tooth
     {
+        private string toothNo;
+        private List<string> procedures = new List<string>();
     }
 }
