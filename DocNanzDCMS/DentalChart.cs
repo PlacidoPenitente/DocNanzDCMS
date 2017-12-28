@@ -7,6 +7,8 @@ namespace DocNanzDCMS
 {
     public class DentalChart
     {
+        private List<Tooth> teeth = new List<Tooth>();
 
+        public List<Tooth> Teeth { get => teeth; set => teeth = value; }
     }
 }

@@ -63,14 +63,12 @@
     <Compile Include="DentalChart.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MedicalHistory.cs" />
-    <Compile Include="Operation.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Procedure.cs" />
     <Compile Include="Restoration.cs" />
-    <Compile Include="SubTooth.cs" />
-    <Compile Include="Surgery.cs" />
     <Compile Include="Tooth.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="Treatment.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserAccountsViewer.xaml.cs">
       <DependentUpon>UserAccountsViewer.xaml</DependentUpon>
