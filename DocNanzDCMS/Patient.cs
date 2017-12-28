@@ -73,6 +73,8 @@ namespace DocNanzDCMS
             patient.ConsultationReason = ConsultationReason;
             patient.PreviousDentist = PreviousDentist;
             patient.LastDentalVisit = LastDentalVisit;
+            patient.DentalChart = DentalChart;
+            patient.MedicalHistory = MedicalHistory;
             return patient;
         }
     }
