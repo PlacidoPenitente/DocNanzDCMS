@@ -75,6 +75,7 @@ namespace DocNanzDCMS
             patient.LastDentalVisit = LastDentalVisit;
             patient.DentalChart = DentalChart;
             patient.MedicalHistory = MedicalHistory;
+            patient.Image = Image;
             return patient;
         }
     }
