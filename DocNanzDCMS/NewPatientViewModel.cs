@@ -26,7 +26,7 @@ namespace DocNanzDCMS
         private string dentalInsuranceError;
         private string effectiveDateError;
         private string occupationError;
-        private string guradianNameError;
+        private string guardianNameError;
         private string guardianOccupationError;
         private string refereeError;
         private string consulationReasonError;
@@ -65,7 +65,7 @@ namespace DocNanzDCMS
                 PreviousDentistError = "";
                 if (value.Trim().Length < 1)
                 {
-                    Referee = "Previous Dentist's Name is required!";
+                    PreviousDentistError = "Previous Dentist's Name is required!";
                 }
                 OnPropertyChanged("PreviousDentist");
             }
@@ -79,7 +79,7 @@ namespace DocNanzDCMS
                 RefereeError = "";
                 if (value.Trim().Length < 1)
                 {
-                    Referee = "Referee's Name is required!";
+                    RefereeError = "Referee's Name is required!";
                 }
                 OnPropertyChanged("Referee");
             }
@@ -93,7 +93,7 @@ namespace DocNanzDCMS
                 ConsulationReasonError = "";
                 if (value.Trim().Length < 1)
                 {
-                    OccupationError = "Consultation is required!";
+                    ConsulationReasonError = "Consultation is required!";
                 }
                 OnPropertyChanged("ConsulationReason");
             }
@@ -132,10 +132,10 @@ namespace DocNanzDCMS
             get => Patient.GuardianName; set
             {
                 Patient.GuardianName = value;
-                GuradianNameError = "";
+                GuardianNameError = "";
                 if (value.Trim().Length < 1)
                 {
-                    GuradianNameError = "Guardian Name is required!";
+                    GuardianNameError = "Guardian's Name is required!";
                 }
                 OnPropertyChanged("GuardianName");
             }
@@ -509,10 +509,10 @@ namespace DocNanzDCMS
                 OnPropertyChanged("OccupationError");
             }
         }
-        public string GuradianNameError {
-            get => guradianNameError; set
+        public string GuardianNameError {
+            get => guardianNameError; set
             {
-                guradianNameError = value;
+                guardianNameError = value;
                 OnPropertyChanged("GuardianNameError");
             }
         }
