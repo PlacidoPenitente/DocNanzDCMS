@@ -231,7 +231,7 @@ namespace DocNanzDCMS
                     MySqlCommand savePatientCommand = Connection.CreateCommand();
                     savePatientCommand.CommandText = "INSERT INTO docnanz_patients VALUES (NULL, @firstname, @lastname, @middlename, @birthdate, " +
                         "@gender, @nickname, @religion, @nationality, @address, @occupation, @homeno, @officeno, @dentalinsurance, @effectivedate, @faxno, " +
-                        "@contactno, @guardianname, @guardianoccupation, @referee, @reason, @previousdentist, @lastdentalvisit, NOW(), NOW(), @activeuser";
+                        "@contactno, @guardianname, @guardianoccupation, @referee, @reason, @previousdentist, @lastdentalvisit, @image, NOW(), NOW(), @activeuser);";
                     savePatientCommand.Parameters.AddWithValue("@firstname", NewPatientViewModel.Patient.FirstName);
                     savePatientCommand.Parameters.AddWithValue("@lastname", NewPatientViewModel.Patient.LastName);
                     savePatientCommand.Parameters.AddWithValue("@middlename", NewPatientViewModel.Patient.MiddleName);
@@ -254,6 +254,7 @@ namespace DocNanzDCMS
                     savePatientCommand.Parameters.AddWithValue("@reason", NewPatientViewModel.Patient.ConsultationReason);
                     savePatientCommand.Parameters.AddWithValue("@previousdentist", NewPatientViewModel.Patient.PreviousDentist);
                     savePatientCommand.Parameters.AddWithValue("@lastdentalvisit", NewPatientViewModel.Patient.LastDentalVisit);
+                    savePatientCommand.Parameters.AddWithValue("@image", NewPatientViewModel.Patient.Image);
                     savePatientCommand.Parameters.AddWithValue("@activeuser", NewPatientViewModel.User.Username);
                     savePatientCommand.Prepare();
                     savePatientCommand.ExecuteNonQuery();
