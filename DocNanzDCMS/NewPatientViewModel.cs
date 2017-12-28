@@ -10,25 +10,242 @@ namespace DocNanzDCMS
     {
         private Patient patient;
         public event PropertyChangedEventHandler PropertyChanged;
-        private String ageError;
-        private String contactNoError;
-        private String firstNameError;
-        private String middleNameError;
-        private String lastNameError;
-        private String addressError;
-        private String emailAddressError;
+        private string ageError;
+        private string contactNoError;
+        private string firstNameError;
+        private string middleNameError;
+        private string lastNameError;
+        private string addressError;
+        private string emailAddressError;
+        private string religionError;
+        private string nationalityError;
+        private string nicknameError;
+        private string homeNoError;
+        private string officeNoError;
+        private string faxNoError;
+        private string dentalInsuranceError;
+        private string effectiveDateError;
+        private string occupationError;
+        private string guradianNameError;
+        private string guardianOccupationError;
+        private string refereeeError;
+        private string consulationReasonError;
+        private string previousDentistError;
+        private string lastDentalVisitError;
 
         public NewPatientViewModel()
         {
             patient = new Patient();
         }
 
-        public String Age
+        public string Age
         {
             get => Patient.Age; set
             {
                 Patient.Age = value;
                 OnPropertyChanged("Age");
+            }
+        }
+
+        public DateTime LastDentalVisit
+        {
+            get => Patient.LastDentalVisit; set
+            {
+                Patient.LastDentalVisit = value;
+                LastDentalVisitError = "";
+                OnPropertyChanged("LastDentalVisit");
+            }
+        }
+
+        public string PreviousDentist
+        {
+            get => Patient.PreviousDentist; set
+            {
+                Patient.PreviousDentist = value;
+                PreviousDentistError = "";
+                if (value.Trim().Length < 1)
+                {
+                    RefereeeError = "Previous Dentist's Name is required!";
+                }
+                OnPropertyChanged("PreviousDentist");
+            }
+        }
+
+        public string Referee
+        {
+            get => Patient.Referree; set
+            {
+                Patient.Referree = value;
+                RefereeeError = "";
+                if (value.Trim().Length < 1)
+                {
+                    RefereeeError = "Referee's Name is required!";
+                }
+                OnPropertyChanged("Referee");
+            }
+        }
+
+        public string ConsulationReason
+        {
+            get => Patient.ConsultationReason; set
+            {
+                Patient.ConsultationReason = value;
+                ConsulationReasonError = "";
+                if (value.Trim().Length < 1)
+                {
+                    OccupationError = "Consultation is required!";
+                }
+                OnPropertyChanged("ConsulationReason");
+            }
+        }
+
+        public string Occupation
+        {
+            get => Patient.Occupation; set
+            {
+                Patient.Occupation = value;
+                OccupationError = "";
+                if (value.Trim().Length < 1)
+                {
+                    OccupationError = "Occupation is required!";
+                }
+                OnPropertyChanged("Occupation");
+            }
+        }
+
+        public string GuardianOccupation
+        {
+            get => Patient.GuardianOccupation; set
+            {
+                Patient.GuardianOccupation = value;
+                GuardianOccupationError = "";
+                if (value.Trim().Length < 1)
+                {
+                    GuardianOccupationError = "Parent/Guardian's Occupation is required!";
+                }
+                OnPropertyChanged("GuardianOccupation");
+            }
+        }
+
+        public string GuardianName
+        {
+            get => Patient.GuardianName; set
+            {
+                Patient.GuardianName = value;
+                GuradianNameError = "";
+                if (value.Trim().Length < 1)
+                {
+                    GuradianNameError = "Guardian Name is required!";
+                }
+                OnPropertyChanged("GuardianName");
+            }
+        }
+
+        public string Religion
+        {
+            get => Patient.Religion; set
+            {
+                Patient.Religion = value;
+                ReligionError = "";
+                if (value.Trim().Length < 1)
+                {
+                    ReligionError = "Religion is required!";
+                }
+                OnPropertyChanged("Religion");
+            }
+        }
+
+        public string DentalInsurance
+        {
+            get => Patient.DentalInsurance; set
+            {
+                Patient.DentalInsurance = value;
+                DentalInsuranceError = "";
+                if (value.Trim().Length < 1)
+                {
+                    DentalInsuranceError = "Dental Insurance is required!";
+                }
+                OnPropertyChanged("DentalInsurance");
+            }
+        }
+
+        public DateTime EffectiveDate
+        {
+            get => Patient.EffectiveDate; set
+            {
+                Patient.EffectiveDate = value;
+                EffectiveDateError = "";
+                OnPropertyChanged("EffectiveDate");
+            }
+        }
+
+        public string Nationality
+        {
+            get => Patient.Nationality; set
+            {
+                Patient.Nationality = value;
+                NationalityError = "";
+                if (value.Trim().Length < 1)
+                {
+                    NationalityError = "Nationality is required!";
+                }
+                OnPropertyChanged("Nationality");
+            }
+        }
+
+        public string Nickname
+        {
+            get => Patient.Nickname; set
+            {
+                Patient.Nickname = value;
+                NicknameError = "";
+                if (value.Trim().Length < 1)
+                {
+                    NicknameError = "Nickname is required!";
+                }
+                OnPropertyChanged("Nickname");
+            }
+        }
+
+        public string OfficeNo
+        {
+            get => Patient.OfficeNo; set
+            {
+                Patient.OfficeNo = value;
+                OfficeNoError = "";
+                if (value.Trim().Length < 1)
+                {
+                    OfficeNoError = "Office No. is required!";
+                }
+                OnPropertyChanged("OfficeNo");
+            }
+        }
+
+        public string FaxNo
+        {
+            get => Patient.FaxNo; set
+            {
+                Patient.FaxNo = value;
+                FaxNoError = "";
+                if (value.Trim().Length < 1)
+                {
+                    FaxNoError = "Fax No. is required!";
+                }
+                OnPropertyChanged("FaxNo");
+            }
+        }
+
+        public string HomeNo
+        {
+            get => Patient.HomeNo; set
+            {
+                Patient.HomeNo = value;
+                HomeNoError = "";
+                if (value.Trim().Length < 1)
+                {
+                    HomeNoError = "Home No. is required!";
+                }
+                OnPropertyChanged("HomeNo");
             }
         }
 
@@ -229,6 +446,21 @@ namespace DocNanzDCMS
         }
 
         public Patient Patient { get => patient; set => patient = value; }
+        public string ReligionError { get => religionError; set => religionError = value; }
+        public string NationalityError { get => nationalityError; set => nationalityError = value; }
+        public string NicknameError { get => nicknameError; set => nicknameError = value; }
+        public string HomeNoError { get => homeNoError; set => homeNoError = value; }
+        public string OfficeNoError { get => officeNoError; set => officeNoError = value; }
+        public string FaxNoError { get => faxNoError; set => faxNoError = value; }
+        public string DentalInsuranceError { get => dentalInsuranceError; set => dentalInsuranceError = value; }
+        public string EffectiveDateError { get => effectiveDateError; set => effectiveDateError = value; }
+        public string OccupationError { get => occupationError; set => occupationError = value; }
+        public string GuradianNameError { get => guradianNameError; set => guradianNameError = value; }
+        public string GuardianOccupationError { get => guardianOccupationError; set => guardianOccupationError = value; }
+        public string RefereeeError { get => refereeeError; set => refereeeError = value; }
+        public string ConsulationReasonError { get => consulationReasonError; set => consulationReasonError = value; }
+        public string PreviousDentistError { get => previousDentistError; set => previousDentistError = value; }
+        public string LastDentalVisitError { get => lastDentalVisitError; set => lastDentalVisitError = value; }
 
         public void OnPropertyChanged(string propertyName)
         {

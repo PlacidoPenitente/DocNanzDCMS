@@ -14,6 +14,7 @@ namespace DocNanzDCMS
         private double amountCharged;
         private double amountpaid;
         private double balance;
+        private string prescription;
 
         public string ProcedureCode { get => procedureCode; set => procedureCode = value; }
         public DateTime ProcedureDate { get => procedureDate; set => procedureDate = value; }
@@ -22,5 +23,6 @@ namespace DocNanzDCMS
         public double AmountCharged { get => amountCharged; set => amountCharged = value; }
         public double Amountpaid { get => amountpaid; set => amountpaid = value; }
         public double Balance { get => balance; set => balance = value; }
+        public string Prescription { get => prescription; set => prescription = value; }
     }
 }
