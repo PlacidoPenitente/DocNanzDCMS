@@ -25,26 +25,40 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
         <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
-        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" FrozenColumnCount="3" HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}" Template="{DynamicResource DataGridControlTemplate1}">
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" FrozenColumnCount="3" HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Patients, Mode=OneWay}" Template="{DynamicResource DataGridControlTemplate1}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Username" Binding="{Binding Username}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Patient No." Binding="{Binding PatientNo}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Last Name" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="First Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Middle Name" Binding="{Binding MiddleName}"/>
-                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Account Type" Binding="{Binding AccountType}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Birthdate" Binding="{Binding Birthdate}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Gender" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Age" Binding="{Binding Age}"/>
-                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Birthdate" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Religion" Binding="{Binding Religion}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Nationality" Binding="{Binding Nationality}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Nickname" Binding="{Binding Nickname}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Address" Binding="{Binding Address}"/>
-                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Email Address" Binding="{Binding Email}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Occupation" Binding="{Binding Occupation}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Home No." Binding="{Binding HomeNo}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Office No." Binding="{Binding OfficeNo}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Dentacl Insurance" Binding="{Binding DentalInsurance}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Effective Date" Binding="{Binding EffectiveDate}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Fax No." Binding="{Binding FaxNo}"/>
                 <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Contact No." Binding="{Binding ContactNo}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Email Address" Binding="{Binding Email}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Parent/Guardian's Name" Binding="{Binding GuardianName}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Parent/Guardian's Occupation" Binding="{Binding GuardianOccupation}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Referee" Binding="{Binding Referee}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Reason for Dental Consultation" Binding="{Binding ConsultationReason}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Previous Dentist" Binding="{Binding PreviousDentist}"/>
+                <DataGridTextColumn Width="Auto" HeaderStyle="{StaticResource DataGridColumnHeaderStyle1}" Header="Last Dental Visit" Binding="{Binding LastDentalVisit}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
-            <Button Content="Add New User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
-            <Button Content="Edit User" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Add New Patient" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Update Patient" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
             <Button Content="Filter" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
-            <Button Content="Delete User" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
+            <Button Content="Delete Patient" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
         </StackPanel>
     </Grid>
 </UserControl>
