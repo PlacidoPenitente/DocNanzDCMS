@@ -32,7 +32,7 @@ namespace DocNanzDCMS
 
         public DatabaseConnection(NewPatientViewModel newPatientViewModel)
         {
-            this.newPatientViewModel = newPatientViewModel;
+            this.NewPatientViewModel = newPatientViewModel;
             createConnection();
         }
 
@@ -106,6 +106,7 @@ namespace DocNanzDCMS
         public MySqlConnection Connection { get => connection; set => connection = value; }
         public NewUserAccountViewModel NewUserAccountViewModel { get => newUserAccountViewModel; set => newUserAccountViewModel = value; }
         public UserAccountsViewerViewModel UserAccountsViewerViewModel { get => userAccountsViewerViewModel; set => userAccountsViewerViewModel = value; }
+        public NewPatientViewModel NewPatientViewModel { get => newPatientViewModel; set => newPatientViewModel = value; }
 
         public void saveUserAccount()
         {
@@ -223,7 +224,52 @@ namespace DocNanzDCMS
 
         private void startSavingPatient()
         {
-            
+            if(NewPatientViewModel.Patient.PatientNo.Equals(""))
+            {
+                try
+                {
+                    MySqlCommand savePatientCommand = Connection.CreateCommand();
+                    savePatientCommand.CommandText = "INSERT INTO docnanz_patients VALUES (NULL, @firstname, @lastname, @middlename, @birthdate, " +
+                        "@gender, @nickname, @religion, @nationality, @address, @occupation, @homeno, @officeno, @dentalinsurance, @effectivedate, @faxno, " +
+                        "@contactno, @guardianname, @guardianoccupation, @referee, @reason, @previousdentist, @lastdentalvisit, NOW(), NOW(), @activeuser";
+                    savePatientCommand.Parameters.AddWithValue("@firstname", NewPatientViewModel.Patient.FirstName);
+                    savePatientCommand.Parameters.AddWithValue("@lastname", NewPatientViewModel.Patient.LastName);
+                    savePatientCommand.Parameters.AddWithValue("@middlename", NewPatientViewModel.Patient.MiddleName);
+                    savePatientCommand.Parameters.AddWithValue("@birthdate", NewPatientViewModel.Patient.Birthdate);
+                    savePatientCommand.Parameters.AddWithValue("@gender", NewPatientViewModel.Patient.Gender);
+                    savePatientCommand.Parameters.AddWithValue("@nickname", NewPatientViewModel.Patient.Nickname);
+                    savePatientCommand.Parameters.AddWithValue("@religion", NewPatientViewModel.Patient.Religion);
+                    savePatientCommand.Parameters.AddWithValue("@nationality", NewPatientViewModel.Patient.Nationality);
+                    savePatientCommand.Parameters.AddWithValue("@address", NewPatientViewModel.Patient.Address);
+                    savePatientCommand.Parameters.AddWithValue("@occupation", NewPatientViewModel.Patient.Occupation);
+                    savePatientCommand.Parameters.AddWithValue("@homeno", NewPatientViewModel.Patient.HomeNo);
+                    savePatientCommand.Parameters.AddWithValue("@officeno", NewPatientViewModel.Patient.OfficeNo);
+                    savePatientCommand.Parameters.AddWithValue("@dentalinsurance", NewPatientViewModel.Patient.DentalInsurance);
+                    savePatientCommand.Parameters.AddWithValue("@effectivedate", NewPatientViewModel.Patient.EffectiveDate);
+                    savePatientCommand.Parameters.AddWithValue("@faxno", NewPatientViewModel.Patient.FaxNo);
+                    savePatientCommand.Parameters.AddWithValue("@contactno", NewPatientViewModel.Patient.ContactNo);
+                    savePatientCommand.Parameters.AddWithValue("@guardianname", NewPatientViewModel.Patient.GuardianName);
+                    savePatientCommand.Parameters.AddWithValue("@guardianoccupation", NewPatientViewModel.Patient.GuardianOccupation);
+                    savePatientCommand.Parameters.AddWithValue("@referee", NewPatientViewModel.Patient.Referee);
+                    savePatientCommand.Parameters.AddWithValue("@reason", NewPatientViewModel.Patient.ConsultationReason);
+                    savePatientCommand.Parameters.AddWithValue("@previousdentist", NewPatientViewModel.Patient.PreviousDentist);
+                    savePatientCommand.Parameters.AddWithValue("@lastdentalvisit", NewPatientViewModel.Patient.LastDentalVisit);
+                    savePatientCommand.Parameters.AddWithValue("@activeuser", NewPatientViewModel.User.Username);
+                    savePatientCommand.Prepare();
+                    savePatientCommand.ExecuteNonQuery();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("Save Patient Thread");
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("-------------------------------------------------------------");
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }

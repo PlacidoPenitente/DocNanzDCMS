@@ -11,6 +11,7 @@ namespace DocNanzDCMS
     {
         private Patient patient;
         private Patient patientCopy;
+        private User user;
         private OpenFileDialog openFileDialog;
         private DatabaseConnection databaseConnection;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -41,6 +42,26 @@ namespace DocNanzDCMS
         {
             patient = new Patient();
             patientCopy = (Patient)patient.Clone();
+            user = new User()
+            {
+                FirstName = "Jay Mark",
+                MiddleName = "Paredes",
+                LastName = "Estrera",
+                Gender = "Male",
+                Birthdate = DateTime.Parse("06/15/1995"),
+                Age = "22",
+                Address = "Pasig City",
+                Email = "estrerajaymark@ymail.com",
+                ContactNo = "09568032571",
+                Question1 = "Question no. 1",
+                Question2 = "Question no. 2",
+                Answer1 = "Answer no. 1",
+                Answer2 = "Answer no. 2",
+                Username = "admin",
+                Password = "admin",
+                AccountType = "Administrator",
+                Image = "sample.jpg"
+            };
             databaseConnection = new DatabaseConnection(this);
         }
 
@@ -583,6 +604,7 @@ namespace DocNanzDCMS
 
         public Patient PatientCopy { get => patientCopy; set => patientCopy = value; }
         public DatabaseConnection DatabaseConnection { get => databaseConnection; set => databaseConnection = value; }
+        public User User { get => user; set => user = value; }
 
         public void OnPropertyChanged(string propertyName)
         {
