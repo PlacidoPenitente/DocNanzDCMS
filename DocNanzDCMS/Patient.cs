@@ -24,8 +24,8 @@ namespace DocNanzDCMS
         private string dentalInsurance = "Medicard";
         private DateTime effectiveDate = DateTime.Now;
         private DateTime lastDentalVisit = DateTime.Now;
-        private MedicalHistory medicalHistory;
-        private DentalChart dentalChart;
+        private MedicalHistory medicalHistory = new MedicalHistory();
+        private DentalChart dentalChart = new DentalChart();
 
         public string Religion { get => religion; set => religion = value; }
         public string Nationality { get => nationality; set => nationality = value; }

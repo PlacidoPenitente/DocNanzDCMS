@@ -33,7 +33,7 @@ namespace DocNanzDCMS
         private string guardianNameError;
         private string guardianOccupationError;
         private string refereeError;
-        private string consulationReasonError;
+        private string consultationReasonError;
         private string previousDentistError;
         private string lastDentalVisitError;
 
@@ -109,17 +109,17 @@ namespace DocNanzDCMS
             }
         }
 
-        public string ConsulationReason
+        public string ConsultationReason
         {
             get => Patient.ConsultationReason; set
             {
                 Patient.ConsultationReason = value;
-                ConsulationReasonError = "";
+                ConsultationReasonError = "";
                 if (value.Trim().Length < 1)
                 {
-                    ConsulationReasonError = "Consultation is required!";
+                    ConsultationReasonError = "Consultation is required!";
                 }
-                OnPropertyChanged("ConsulationReason");
+                OnPropertyChanged("ConsultationReason");
             }
         }
 
@@ -547,11 +547,11 @@ namespace DocNanzDCMS
                 OnPropertyChanged("GuardianOccupationError");
             }
         }
-        public string ConsulationReasonError {
-            get => consulationReasonError; set
+        public string ConsultationReasonError {
+            get => consultationReasonError; set
             {
-                consulationReasonError = value;
-                OnPropertyChanged("ConsulationReasonError");
+                consultationReasonError = value;
+                OnPropertyChanged("ConsultationReasonError");
             }
         }
         public string PreviousDentistError {
@@ -603,16 +603,32 @@ namespace DocNanzDCMS
 
         public void cancelUserUpdate()
         {
-            FirstName = PatientCopy.FirstName;
-            MiddleName = PatientCopy.MiddleName;
-            LastName = PatientCopy.LastName;
-            Birthdate = PatientCopy.Birthdate;
-            Address = PatientCopy.Address;
-            Email = PatientCopy.Email;
-            ContactNo = PatientCopy.ContactNo;
-            Image = PatientCopy.Image;
-            Gender = PatientCopy.Gender;
-            Age = PatientCopy.Age;
+            FirstName = patientCopy.FirstName;
+            LastName = patientCopy.LastName;
+            MiddleName = patientCopy.MiddleName;
+            Birthdate = patientCopy.Birthdate;
+            Age = patientCopy.Age;
+            Gender = patientCopy.Gender;
+            Religion = patientCopy.Religion;
+            Nationality = patientCopy.Nationality;
+            Address = patientCopy.Address;
+            HomeNo = patientCopy.HomeNo;
+            Occupation = patientCopy.Occupation;
+            OfficeNo = patientCopy.OfficeNo;
+            DentalInsurance = patientCopy.DentalInsurance;
+            FaxNo = patientCopy.FaxNo;
+            EffectiveDate = patientCopy.EffectiveDate;
+            ContactNo = patientCopy.ContactNo;
+            GuardianName = patientCopy.GuardianName;
+            Email = patientCopy.Email;
+            GuardianOccupation = patientCopy.GuardianOccupation;
+            Referee = patientCopy.Referee;
+            ConsultationReason = patientCopy.ConsultationReason;
+            PreviousDentist = patientCopy.PreviousDentist;
+            LastDentalVisit = patientCopy.LastDentalVisit;
+            DentalChart = patientCopy.DentalChart;
+            MedicalHistory = patientCopy.MedicalHistory;
+            Image = patientCopy.Image;
         }
     }
 }

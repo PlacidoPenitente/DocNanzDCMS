@@ -7,16 +7,16 @@ namespace DocNanzDCMS
 {
     public class Person
     {
-        private string firstName;
-        private string middleName;
-        private string lastName;
-        private string age;
+        private string firstName = "";
+        private string middleName = "";
+        private string lastName = "";
+        private string age = "0";
         private string gender = "Male";
         private DateTime birthdate = DateTime.Now;
-        private string address;
-        private string email;
-        private string contactNo;
-        private string image;
+        private string address = "";
+        private string email = "";
+        private string contactNo = "";
+        private string image = "";
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string MiddleName { get => middleName; set => middleName = value; }

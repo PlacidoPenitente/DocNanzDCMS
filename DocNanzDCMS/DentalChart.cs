@@ -69,6 +69,68 @@ namespace DocNanzDCMS
 
         public DentalChart()
         {
+
+
+            tooth11 = new Tooth();
+            tooth12 = new Tooth();
+            tooth13 = new Tooth();
+            tooth14 = new Tooth();
+            tooth15 = new Tooth();
+            tooth16 = new Tooth();
+            tooth17 = new Tooth();
+            tooth18 = new Tooth();
+
+            tooth21 = new Tooth();
+            tooth22 = new Tooth();
+            tooth23 = new Tooth();
+            tooth24 = new Tooth();
+            tooth25 = new Tooth();
+            tooth26 = new Tooth();
+            tooth27 = new Tooth();
+            tooth28 = new Tooth();
+
+            tooth31 = new Tooth();
+            tooth32 = new Tooth();
+            tooth33 = new Tooth();
+            tooth34 = new Tooth();
+            tooth35 = new Tooth();
+            tooth36 = new Tooth();
+            tooth37 = new Tooth();
+            tooth38 = new Tooth();
+
+            tooth41 = new Tooth();
+            tooth42 = new Tooth();
+            tooth43 = new Tooth();
+            tooth44 = new Tooth();
+            tooth45 = new Tooth();
+            tooth46 = new Tooth();
+            tooth47 = new Tooth();
+            tooth48 = new Tooth();
+
+            tooth51 = new Tooth();
+            tooth52 = new Tooth();
+            tooth53 = new Tooth();
+            tooth54 = new Tooth();
+            tooth55 = new Tooth();
+
+            tooth61 = new Tooth();
+            tooth62 = new Tooth();
+            tooth63 = new Tooth();
+            tooth64 = new Tooth();
+            tooth65 = new Tooth();
+
+            tooth71 = new Tooth();
+            tooth72 = new Tooth();
+            tooth73 = new Tooth();
+            tooth74 = new Tooth();
+            tooth75 = new Tooth();
+
+            tooth81 = new Tooth();
+            tooth82 = new Tooth();
+            tooth83 = new Tooth();
+            tooth84 = new Tooth();
+            tooth85 = new Tooth();
+
             tooth11.ToothNo = "11";
             tooth12.ToothNo = "12";
             tooth13.ToothNo = "13";
