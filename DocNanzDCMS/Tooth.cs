@@ -10,7 +10,7 @@ namespace DocNanzDCMS
         private string toothNo;
         private string image;
 
-        private List<string> procedures = new List<string>();
+        private List<Procedure> procedures = new List<Procedure>();
         public string Image { get => image; set => image = value; }
     }
 }
