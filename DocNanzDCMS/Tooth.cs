@@ -10,9 +10,11 @@ namespace DocNanzDCMS
         private string toothNo;
         private string image;
         private List<Procedure> procedures = new List<Procedure>();
+        private Condition condition;
 
         public string ToothNo { get => toothNo; set => toothNo = value; }
         public string Image { get => image; set => image = value; }
         public List<Procedure> Procedures { get => procedures; set => procedures = value; }
+        public Condition Condition { get => condition; set => condition = value; }
     }
 }
