@@ -648,7 +648,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-                    <Grid Background="{StaticResource LightBlue}">
+                    <Grid Background="{StaticResource LightBlue}" SnapsToDevicePixels="True">
                         <Border Padding="10">
                             <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
