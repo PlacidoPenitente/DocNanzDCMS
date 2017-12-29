@@ -10,6 +10,11 @@ namespace DocNanzDCMS
     {
         private MedicalHistory medicalHistory;
 
+        public NewMedicalHistoryViewModel()
+        {
+            medicalHistory = new MedicalHistory();
+        }
+
         public string PhysicianName { get => MedicalHistory.PhysicianName; set
             {
                 MedicalHistory.PhysicianName = value;
@@ -106,7 +111,7 @@ namespace DocNanzDCMS
                 OnPropertyChanged("BloodPressure");
             }
         }
-        public List<string> Diseases { get => MedicalHistory.Diseases; set
+        public string Diseases { get => MedicalHistory.Diseases; set
             {
                 MedicalHistory.Diseases = value;
                 OnPropertyChanged("Diseases");

@@ -89,24 +89,6 @@ namespace DocNanzDCMS
             }
         }
 
-        public MedicalHistory MedicalHistory
-        {
-            get => Patient.MedicalHistory; set
-            {
-                Patient.MedicalHistory = value;
-                OnPropertyChanged("MedicalHistory");
-            }
-        }
-
-        public DentalChart DentalChart
-        {
-            get => Patient.DentalChart; set
-            {
-                Patient.DentalChart = value;
-                OnPropertyChanged("DentalChart");
-            }
-        }
-
         public string PreviousDentist
         {
             get => Patient.PreviousDentist; set
@@ -653,8 +635,6 @@ namespace DocNanzDCMS
             ConsultationReason = patientCopy.ConsultationReason;
             PreviousDentist = patientCopy.PreviousDentist;
             LastDentalVisit = patientCopy.LastDentalVisit;
-            DentalChart = patientCopy.DentalChart;
-            MedicalHistory = patientCopy.MedicalHistory;
             Image = patientCopy.Image;
         }
     }

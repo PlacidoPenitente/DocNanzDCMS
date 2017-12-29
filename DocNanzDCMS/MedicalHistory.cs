@@ -26,7 +26,7 @@ namespace DocNanzDCMS
         private bool isTakingBirthControllPills = false;
         private string bloodType = "A";
         private string bloodPressure = "100/70";
-        private List<string> diseases = new List<string>() {"High Blood Pressure", "Diabetes"};
+        private string diseases = "Diabetes";
         
         public string PhysicianName { get => physicianName; set => physicianName = value; }
         public string PhysicianSpecialty { get => physicianSpecialty; set => physicianSpecialty = value; }
@@ -44,9 +44,9 @@ namespace DocNanzDCMS
         public bool IsPregnant { get => isPregnant; set => isPregnant = value; }
         public string BloodType { get => bloodType; set => bloodType = value; }
         public string BloodPressure { get => bloodPressure; set => bloodPressure = value; }
-        public List<string> Diseases { get => diseases; set => diseases = value; }
         public bool IsNursing { get => isNursing; set => isNursing = value; }
         public bool IsTakingBirthControlPills { get => isTakingBirthControllPills; set => isTakingBirthControllPills = value; }
         public Patient Patient { get => patient; set => patient = value; }
+        public string Diseases { get => diseases; set => diseases = value; }
     }
 }
