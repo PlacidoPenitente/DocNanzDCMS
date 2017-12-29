@@ -46,7 +46,7 @@ namespace DocNanzDCMS
         public string BloodPressure { get => bloodPressure; set => bloodPressure = value; }
         public List<string> Diseases { get => diseases; set => diseases = value; }
         public bool IsNursing { get => isNursing; set => isNursing = value; }
-        public bool IsTakingBirthControllPills { get => isTakingBirthControllPills; set => isTakingBirthControllPills = value; }
+        public bool IsTakingBirthControlPills { get => isTakingBirthControllPills; set => isTakingBirthControllPills = value; }
         public Patient Patient { get => patient; set => patient = value; }
     }
 }

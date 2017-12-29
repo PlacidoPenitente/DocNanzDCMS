@@ -10,28 +10,127 @@ namespace DocNanzDCMS
     {
         private MedicalHistory medicalHistory;
 
-        public MedicalHistory MedicalHistory { get => medicalHistory; set => medicalHistory = value; }
+        public string PhysicianName { get => MedicalHistory.PhysicianName; set
+            {
+                MedicalHistory.PhysicianName = value;
+                OnPropertyChanged("PhysicianName");
+            }
+        }
+        public string PhysicianSpecialty { get => MedicalHistory.PhysicianSpecialty; set
+            {
+                MedicalHistory.PhysicianSpecialty = value;
+                OnPropertyChanged("PhysicianSpecialty");
+            }
+        }
+        public string PhysicianAddress { get => MedicalHistory.PhysicianAddress; set
+            {
+                MedicalHistory.PhysicianAddress = value;
+                OnPropertyChanged("PhysicianAddress");
+            }
+        }
+        public string PhysicianNo { get => MedicalHistory.PhysicianNo; set
+            {
+                MedicalHistory.PhysicianNo = value;
+                OnPropertyChanged("PhysicianNo");
+            }
+        }
+        public bool IsInGoodHealth { get => MedicalHistory.IsInGoodHealth; set
+            {
+                MedicalHistory.IsInGoodHealth = value;
+                OnPropertyChanged("IsInGoodHealth");
+            }
+        }
+        public string MedicalTreatment { get => MedicalHistory.MedicalTreatment; set
+            {
+                MedicalHistory.MedicalTreatment = value;
+                OnPropertyChanged("MedicalTreatment");
+            }
+        }
+        public string SeriousIllnessOrOperation { get => MedicalHistory.SeriousIllnessOrOperation; set
+            {
+                MedicalHistory.SeriousIllnessOrOperation = value;
+                OnPropertyChanged("SeriousIllnessOrOperation");
+            }
+        }
+        public string HospitalizationReason { get => MedicalHistory.HospitalizationReason; set
+            {
+                MedicalHistory.HospitalizationReason = value;
+                OnPropertyChanged("HospitalizationReason");
+            }
+        }
+        public string MedicationTaken { get => MedicalHistory.MedicationTaken; set
+            {
+                MedicalHistory.MedicationTaken = value;
+                OnPropertyChanged("MedicationTaken");
+            }
+        }
+        public bool IsTobaccoUser { get => MedicalHistory.IsTobaccoUser; set
+            {
+                MedicalHistory.IsTobaccoUser = value;
+                OnPropertyChanged("IsTobaccoUser");
+            }
+        }
+        public bool IsDangerousDrugsUser { get => MedicalHistory.IsDangerousDrugsUser; set
+            {
+                MedicalHistory.IsDangerousDrugsUser = value;
+                OnPropertyChanged("IsDangerousDrugUser");
+            }
+        }
+        public List<string> MedicinesAllergicTo { get => MedicalHistory.MedicinesAllergicTo; set
+            {
+                MedicalHistory.MedicinesAllergicTo = value;
+                OnPropertyChanged("MedicinesAllergicTo");
+            }
+        }
+        public string BleedingTime { get => MedicalHistory.BleedingTime; set
+            {
+                MedicalHistory.BleedingTime = value;
+                OnPropertyChanged("BleedingTime");
+            }
+        }
+        public bool IsPregnant { get => MedicalHistory.IsPregnant; set
+            {
+                MedicalHistory.IsPregnant = value;
+                OnPropertyChanged("IsPregnant");
+            }
+        }
+        public string BloodType { get => MedicalHistory.BloodType; set
+            {
+                MedicalHistory.BloodType = value;
+                OnPropertyChanged("BloodType");
+            }
+        }
+        public string BloodPressure { get => MedicalHistory.BloodPressure; set
+            {
+                MedicalHistory.BloodPressure = value;
+                OnPropertyChanged("BloodPressure");
+            }
+        }
+        public List<string> Diseases { get => MedicalHistory.Diseases; set
+            {
+                MedicalHistory.Diseases = value;
+                OnPropertyChanged("Diseases");
+            }
+        }
+        public bool IsNursing { get => MedicalHistory.IsNursing; set
+            {
+                MedicalHistory.IsNursing = value;
+                OnPropertyChanged("IsNursing");
+            }
+        }
+        public bool IsTakingBirthControlPills { get => MedicalHistory.IsTakingBirthControlPills; set
+            {
+                MedicalHistory.IsTakingBirthControlPills = value;
+                OnPropertyChanged("IsTakingBirthControlPills");
+            }
+        }
+        public Patient Patient { get => MedicalHistory.Patient; set
+            {
+                MedicalHistory.Patient = value;
+            }
+        }
 
-        public string PhysicianName { get => MedicalHistory.PhysicianName; set => MedicalHistory.PhysicianName = value; }
-        public string PhysicianSpecialty { get => MedicalHistory.PhysicianSpecialty; set => MedicalHistory.PhysicianSpecialty = value; }
-        public string PhysicianAddress { get => MedicalHistory.PhysicianAddress; set => MedicalHistory.PhysicianAddress = value; }
-        public string PhysicianNo { get => MedicalHistory.PhysicianNo; set => MedicalHistory.PhysicianNo = value; }
-        public bool IsInGoodHealth { get => MedicalHistory.IsInGoodHealth; set => MedicalHistory.IsInGoodHealth = value; }
-        public string MedicalTreatment { get => MedicalHistory.MedicalTreatment; set => MedicalHistory.MedicalTreatment = value; }
-        public string SeriousIllnessOrOperation { get => MedicalHistory.SeriousIllnessOrOperation; set => MedicalHistory.SeriousIllnessOrOperation = value; }
-        public string HospitalizationReason { get => MedicalHistory.HospitalizationReason; set => MedicalHistory.HospitalizationReason = value; }
-        public string MedicationTaken { get => MedicalHistory.MedicationTaken; set => MedicalHistory.MedicationTaken = value; }
-        public bool IsTobaccoUser { get => MedicalHistory.IsTobaccoUser; set => MedicalHistory.IsTobaccoUser = value; }
-        public bool IsDangerousDrugsUser { get => MedicalHistory.IsDangerousDrugsUser; set => MedicalHistory.IsDangerousDrugsUser = value; }
-        public List<string> MedicinesAllergicTo { get => MedicalHistory.MedicinesAllergicTo; set => MedicalHistory.MedicinesAllergicTo = value; }
-        public string BleedingTime { get => MedicalHistory.BleedingTime; set => MedicalHistory.BleedingTime = value; }
-        public bool IsPregnant { get => MedicalHistory.IsPregnant; set => MedicalHistory.IsPregnant = value; }
-        public string BloodType { get => MedicalHistory.BloodType; set => MedicalHistory.BloodType = value; }
-        public string BloodPressure { get => MedicalHistory.BloodPressure; set => MedicalHistory.BloodPressure = value; }
-        public List<string> Diseases { get => MedicalHistory.Diseases; set => MedicalHistory.Diseases = value; }
-        public bool IsNursing { get => MedicalHistory.IsNursing; set => MedicalHistory.IsNursing = value; }
-        public bool IsTakingBirthControllPills { get => MedicalHistory.IsTakingBirthControllPills; set => MedicalHistory.IsTakingBirthControllPills = value; }
-        public Patient Patient { get => MedicalHistory.Patient; set => MedicalHistory.Patient = value; }
+        public MedicalHistory MedicalHistory { get => medicalHistory; set => medicalHistory = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
