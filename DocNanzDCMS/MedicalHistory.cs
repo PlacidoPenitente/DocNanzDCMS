@@ -21,6 +21,8 @@ namespace DocNanzDCMS
         private List<string> medicinesAllergicTo = new List<string>() {"Antibiotic", "Penicillin"};
         private string bleedingTime = "1";
         private bool isPregnant = false;
+        private bool isNursing = false;
+        private bool isTakingBirthControllPills = false;
         private string bloodType = "A";
         private string bloodPressure = "100/70";
         private List<string> diseases = new List<string>() {"High Blood Pressure", "Diabetes"};
@@ -42,5 +44,7 @@ namespace DocNanzDCMS
         public string BloodType { get => bloodType; set => bloodType = value; }
         public string BloodPressure { get => bloodPressure; set => bloodPressure = value; }
         public List<string> Diseases { get => diseases; set => diseases = value; }
+        public bool IsNursing { get => isNursing; set => isNursing = value; }
+        public bool IsTakingBirthControllPills { get => isTakingBirthControllPills; set => isTakingBirthControllPills = value; }
     }
 }

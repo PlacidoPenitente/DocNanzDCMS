@@ -7,6 +7,100 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Background="{StaticResource Blue}" Orientation="Horizontal">
+            <Label Foreground="White" FontFamily="Century Gothic" VerticalAlignment="Center" FontSize="18" Content="Medical History"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <Grid Margin="0, 20, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="Patient" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FirstNameError}" local:AttachedProperties.Label="Patient:" Style="{StaticResource TextBox}"/>
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                    <Image Height="100" Width="100"/>
+                </StackPanel>
+
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is in good health?" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+
+                <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Religion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Medical condition being treated:" Style="{StaticResource TextBox}"/>
+                
+                
+                <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Text="{Binding Nationality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding NationalityError}" local:AttachedProperties.Label="Serious Illnes or Surgical Operation:" Style="{StaticResource TextBox}"/>
+
+                <TextBox Width="600" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Reason for being hospitalized:" Style="{StaticResource TextBox}"/>
+
+                <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding EmailAddressError}" local:AttachedProperties.Label="Prescription/Non-Prescription Medication currently taking:" Style="{StaticResource TextBox}"/>
+                
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is tobacco user?" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="5">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is pregnant?" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="6">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is nursing?" local:AttachedProperties.Error="" Grid.Column="1" Grid.Row="6">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is taking pills?" local:AttachedProperties.Error="" Grid.Column="2" Grid.Row="6">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Is dangerous drugs user?" local:AttachedProperties.Error="" Grid.Column="1" Grid.Row="5">
+                    <ComboBoxItem Content="Yes"/>
+                    <ComboBoxItem Content="No"/>
+                </ComboBox>
+
+                <TextBox Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" local:AttachedProperties.Label="Allergies (Separated by comma):" Style="{StaticResource TextBox}"/>
+
+                <TextBox Width="200" Grid.Column="0" Grid.Row="8" Text="{Binding Occupation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OccupationError}" local:AttachedProperties.Label="Bleeding Time:" Style="{StaticResource TextBox}"/>
+                <TextBox Width="200" Grid.Column="1" Grid.Row="8" Text="{Binding OfficeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OfficeNoError}" local:AttachedProperties.Label="Blood Type:" Style="{StaticResource TextBox}"/>
+                <TextBox Width="200" Grid.Column="2" Grid.Row="8" Text="{Binding FaxNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FaxNoError}" local:AttachedProperties.Label="Blood Pressure:" Style="{StaticResource TextBox}"/>
+
+                <TextBox Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" local:AttachedProperties.Label="Other Illnesses or Diseases (Separated by comma):" Style="{StaticResource TextBox}"/>
+
+                <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" Text="{Binding OfficeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OfficeNoError}" local:AttachedProperties.Label="Physician:" Style="{StaticResource TextBox}"/>
+                <TextBox Width="200" Grid.Column="2" Grid.Row="10" Text="{Binding FaxNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FaxNoError}" local:AttachedProperties.Label="Specialization:" Style="{StaticResource TextBox}"/>
+                
+                <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" Text="{Binding OfficeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OfficeNoError}" local:AttachedProperties.Label="Office Address:" Style="{StaticResource TextBox}"/>
+                <TextBox Width="200" Grid.Column="2" Grid.Row="11" Text="{Binding FaxNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FaxNoError}" local:AttachedProperties.Label="Office No.:" Style="{StaticResource TextBox}"/>
+            </Grid>
+        </ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
+            <Button Content="Proceed" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Cancel" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
