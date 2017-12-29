@@ -7,6 +7,7 @@ namespace DocNanzDCMS
 {
     public class MedicalHistory
     {
+        private Patient patient;
         private string physicianName = "Yedda Marie Lingad";
         private string physicianSpecialty = "None";
         private string physicianAddress = "Mandaluyong City";
@@ -46,5 +47,6 @@ namespace DocNanzDCMS
         public List<string> Diseases { get => diseases; set => diseases = value; }
         public bool IsNursing { get => isNursing; set => isNursing = value; }
         public bool IsTakingBirthControllPills { get => isTakingBirthControllPills; set => isTakingBirthControllPills = value; }
+        public Patient Patient { get => patient; set => patient = value; }
     }
 }
