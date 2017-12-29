@@ -14,6 +14,7 @@ namespace DocNanzDCMS
         private Thread checkThread;
         private Thread getUsersThread;
         private Thread savePatientThread;
+        private Thread getPatientsThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
@@ -27,7 +28,7 @@ namespace DocNanzDCMS
 
         public DatabaseConnection(PatientsViewerViewModel patientsViewerViewModel)
         {
-            this.patientsViewerViewModel = patientsViewerViewModel;
+            this.PatientsViewerViewModel = patientsViewerViewModel;
             createConnection();
         }
 
@@ -53,6 +54,73 @@ namespace DocNanzDCMS
             catch (Exception e)
             {
                 Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
+        }
+
+        public void getPatients()
+        {
+            if (getPatientsThread == null || !getPatientsThread.IsAlive)
+            {
+                getPatientsThread = new Thread(startGettingPatients);
+                getPatientsThread.IsBackground = true;
+                getPatientsThread.Start();
+            }
+        }
+
+        public void startGettingPatients()
+        {
+            try
+            {
+                MySqlCommand getCommand = connection.CreateCommand();
+                getCommand.CommandText = "SELECT * FROM docnanz_patients";
+                MySqlDataReader patientsReader = getCommand.ExecuteReader();
+                while (patientsReader.Read())
+                {
+                    int age = DateTime.Now.Year - DateTime.Parse(patientsReader.GetString("patient_birthdate")).Year;
+
+                    if (DateTime.Now.Month < DateTime.Parse(patientsReader.GetString("patient_birthdate")).Month || (DateTime.Now.Month == DateTime.Parse(patientsReader.GetString("patient_birthdate")).Month && DateTime.Now.Day < DateTime.Parse(patientsReader.GetString("patient_birthdate")).Day))
+                    {
+                        age--;
+                    }
+                    Patient patient = new Patient()
+                    {
+                        PatientNo = patientsReader.GetString("patient_no"),
+                        FirstName = patientsReader.GetString("patient_firstname"),
+                        MiddleName = patientsReader.GetString("patient_middlename"),
+                        LastName = patientsReader.GetString("patient_lastname"),
+                        Birthdate = DateTime.Parse(patientsReader.GetString("patient_birthdate")),
+                        Gender = patientsReader.GetString("patient_gender"),
+                        Religion = patientsReader.GetString("patient_religion"),
+                        Nationality = patientsReader.GetString("patient_nationality"),
+                        Nickname = patientsReader.GetString("patient_nickname"),
+                        Address = patientsReader.GetString("patient_address"),
+                        HomeNo = patientsReader.GetString("patient_homeno"),
+                        Occupation = patientsReader.GetString("patient_occupation"),
+                        OfficeNo = patientsReader.GetString("patient_officeno"),
+                        DentalInsurance = patientsReader.GetString("patient_dentalinsurance"),
+                        EffectiveDate = DateTime.Parse(patientsReader.GetString("patient_effectivedate")),
+                        FaxNo = patientsReader.GetString("patient_faxno"),
+                        Email = patientsReader.GetString("patient_email"),
+                        ContactNo = patientsReader.GetString("patient_contactno"),
+                        GuardianName = patientsReader.GetString("patient_guardianname"),
+                        GuardianOccupation = patientsReader.GetString("patient_guardianoccupation"),
+                        Referee = patientsReader.GetString("patient_referee"),
+                        ConsultationReason = patientsReader.GetString("patient_reason"),
+                        PreviousDentist = patientsReader.GetString("patient_previousdentist"),
+                        LastDentalVisit = DateTime.Parse(patientsReader.GetString("patient_lastdentalvisit")),
+                        Image = patientsReader.GetString("patient_image"),
+                        Age = age.ToString()
+                    };
+                    PatientsViewerViewModel.Patients.Add(patient);
+                }
+                patientsReader.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("GetPatients Thread");
                 Console.WriteLine(e.Message);
                 Console.WriteLine("-------------------------------------------------------------");
             }
@@ -114,6 +182,7 @@ namespace DocNanzDCMS
         public NewUserAccountViewModel NewUserAccountViewModel { get => newUserAccountViewModel; set => newUserAccountViewModel = value; }
         public UserAccountsViewerViewModel UserAccountsViewerViewModel { get => userAccountsViewerViewModel; set => userAccountsViewerViewModel = value; }
         public NewPatientViewModel NewPatientViewModel { get => newPatientViewModel; set => newPatientViewModel = value; }
+        public PatientsViewerViewModel PatientsViewerViewModel { get => patientsViewerViewModel; set => patientsViewerViewModel = value; }
 
         public void saveUserAccount()
         {
@@ -238,7 +307,7 @@ namespace DocNanzDCMS
                     MySqlCommand savePatientCommand = Connection.CreateCommand();
                     savePatientCommand.CommandText = "INSERT INTO docnanz_patients VALUES (NULL, @firstname, @lastname, @middlename, @birthdate, " +
                         "@gender, @nickname, @religion, @nationality, @address, @occupation, @homeno, @officeno, @dentalinsurance, @effectivedate, @faxno, " +
-                        "@contactno, @guardianname, @guardianoccupation, @referee, @reason, @previousdentist, @lastdentalvisit, @image, NOW(), NOW(), @activeuser);";
+                        "@contactno, @email, @guardianname, @guardianoccupation, @referee, @reason, @previousdentist, @lastdentalvisit, @image, NOW(), NOW(), @activeuser);";
                     savePatientCommand.Parameters.AddWithValue("@firstname", NewPatientViewModel.Patient.FirstName);
                     savePatientCommand.Parameters.AddWithValue("@lastname", NewPatientViewModel.Patient.LastName);
                     savePatientCommand.Parameters.AddWithValue("@middlename", NewPatientViewModel.Patient.MiddleName);
@@ -255,6 +324,7 @@ namespace DocNanzDCMS
                     savePatientCommand.Parameters.AddWithValue("@effectivedate", NewPatientViewModel.Patient.EffectiveDate);
                     savePatientCommand.Parameters.AddWithValue("@faxno", NewPatientViewModel.Patient.FaxNo);
                     savePatientCommand.Parameters.AddWithValue("@contactno", NewPatientViewModel.Patient.ContactNo);
+                    savePatientCommand.Parameters.AddWithValue("@email", NewPatientViewModel.Patient.Email);
                     savePatientCommand.Parameters.AddWithValue("@guardianname", NewPatientViewModel.Patient.GuardianName);
                     savePatientCommand.Parameters.AddWithValue("@guardianoccupation", NewPatientViewModel.Patient.GuardianOccupation);
                     savePatientCommand.Parameters.AddWithValue("@referee", NewPatientViewModel.Patient.Referee);
@@ -269,7 +339,7 @@ namespace DocNanzDCMS
                 catch(Exception e)
                 {
                     Console.WriteLine("-------------------------------------------------------------");
-                    Console.WriteLine("Save Patient Thread");
+                    Console.WriteLine("SavePatient Thread");
                     Console.WriteLine(e.Message);
                     Console.WriteLine("-------------------------------------------------------------");
                 }

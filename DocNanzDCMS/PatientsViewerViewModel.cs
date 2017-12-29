@@ -32,7 +32,7 @@ namespace DocNanzDCMS
         {
             this.databaseConnection = new DatabaseConnection(this);
             this.patients = new List<Patient>();
-            this.databaseConnection.getUserAccounts();
+            this.databaseConnection.getPatients();
         }
     }
 }
