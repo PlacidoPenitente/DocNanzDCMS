@@ -68,6 +68,9 @@
       <DependentUpon>MedicalRecordsViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedicalRecordsViewerViewModel.cs" />
+    <Compile Include="NewAppointment.xaml.cs">
+      <DependentUpon>NewAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewItem.xaml.cs">
       <DependentUpon>NewItem.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
       <DependentUpon>NewPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewPatientViewModel.cs" />
+    <Compile Include="NewTreatment.xaml.cs">
+      <DependentUpon>NewTreatment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Patient.cs" />
     <Compile Include="PatientsViewer.xaml.cs">
       <DependentUpon>PatientsViewer.xaml</DependentUpon>
@@ -122,6 +128,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NewAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NewPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewTreatment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
