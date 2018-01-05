@@ -9,10 +9,16 @@ namespace DocNanzDCMS
     public class NewMedicalHistoryViewModel : INotifyPropertyChanged
     {
         private MedicalHistory medicalHistory;
+        private List<Patient> patients;
+        private DatabaseConnection databaseConnection;
+        private List<bool> yesOrNo = new List<bool>() {true, false};
 
         public NewMedicalHistoryViewModel()
         {
             medicalHistory = new MedicalHistory();
+            patients = new List<Patient>();
+            databaseConnection = new DatabaseConnection(this);
+            databaseConnection.getMatchingPatients();
         }
 
         public string PhysicianName { get => MedicalHistory.PhysicianName; set
@@ -136,6 +142,8 @@ namespace DocNanzDCMS
         }
 
         public MedicalHistory MedicalHistory { get => medicalHistory; set => medicalHistory = value; }
+        public List<Patient> Patients { get => patients; set => patients = value; }
+        public List<bool> YesOrNo { get => yesOrNo; set => yesOrNo = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)

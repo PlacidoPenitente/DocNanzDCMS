@@ -44,6 +44,7 @@ namespace DocNanzDCMS
         public DateTime EffectiveDate { get => effectiveDate; set => effectiveDate = value; }
         public string Referee { get => referee; set => referee = value; }
         public string PatientNo { get => patientNo; set => patientNo = value; }
+        public string Summary { get => patientNo + " - " + LastName + ", " + FirstName + " " + MiddleName + " - " + (Gender.ElementAt(0)) + " - " + Age; set { } }
 
         public object Clone()
         {

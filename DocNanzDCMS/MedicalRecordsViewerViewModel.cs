@@ -7,5 +7,6 @@ namespace DocNanzDCMS
 {
     public class MedicalRecordsViewerViewModel
     {
+
     }
 }
