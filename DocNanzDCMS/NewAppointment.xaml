@@ -5,8 +5,59 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="900" d:DesignWidth="1024">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Background="{StaticResource Blue}" Orientation="Horizontal">
+            <Label Foreground="White" FontFamily="Century Gothic" VerticalAlignment="Center" FontSize="18" Content="New Appointment"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <Grid Margin="0, 20, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="98"/>
+                </Grid.RowDefinitions>
+
+                <ComboBox Style="{StaticResource ComboBox}" ItemsSource="{Binding YesOrNo}" SelectedIndex="0" Text="{Binding IsInGoodHealth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Patient:" local:AttachedProperties.Error="" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0"/>
+
+                <ComboBox Style="{StaticResource ComboBox}" ItemsSource="{Binding YesOrNo}" SelectedIndex="0" Text="{Binding IsInGoodHealth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Dentist:" local:AttachedProperties.Error="" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"/>
+                <ComboBox Style="{StaticResource ComboBox}" ItemsSource="{Binding YesOrNo}" SelectedIndex="0" Text="{Binding IsInGoodHealth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Treatment:" local:AttachedProperties.Error="" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1"/>
+
+                <TextBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Width="600" Text="{Binding MedicalTreatment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Appoinment Details:" Style="{StaticResource TextBox}"/>
+
+                <DatePicker Grid.Column="2" Grid.Row="1" Style="{StaticResource DatePicker}" local:AttachedProperties.Label="Appointment Date: "/>
+
+            </Grid>
+        </ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
+            <Button Content="Proceed" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Cancel" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
