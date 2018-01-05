@@ -121,6 +121,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <local:NewMedicalHistory Grid.Column="1"/>
+        <local:NewItem Grid.Column="1"/>
     </Grid>
 </Window>

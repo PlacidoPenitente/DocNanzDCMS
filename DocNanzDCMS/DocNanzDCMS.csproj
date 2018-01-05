@@ -68,6 +68,9 @@
       <DependentUpon>MedicalRecordsViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedicalRecordsViewerViewModel.cs" />
+    <Compile Include="NewItem.xaml.cs">
+      <DependentUpon>NewItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewMedicalHistory.xaml.cs">
       <DependentUpon>NewMedicalHistory.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MedicalRecordsViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
