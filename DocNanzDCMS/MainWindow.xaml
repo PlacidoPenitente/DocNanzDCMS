@@ -121,6 +121,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <local:NewItem Grid.Column="1"/>
+        <local:ItemsViewer Grid.Column="1"/>
     </Grid>
 </Window>

@@ -18,12 +18,14 @@ namespace DocNanzDCMS
         private Thread getMatchingPatientsThread;
         private Thread getCategoriesThread;
         private Thread saveItemThread;
+        private Thread getItemsThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
         private PatientsViewerViewModel patientsViewerViewModel;
         private NewMedicalHistoryViewModel newMedicalHistoryViewModel;
         private NewItemViewModel newItemViewModel;
+        private ItemsViewerViewModel itemsViewerViewModel;
 
         public DatabaseConnection(NewItemViewModel newItemViewModel)
         {
@@ -34,6 +36,12 @@ namespace DocNanzDCMS
         public DatabaseConnection(NewMedicalHistoryViewModel newMedicalHistoryViewModel)
         {
             this.newMedicalHistoryViewModel = newMedicalHistoryViewModel;
+            createConnection();
+        }
+
+        public DatabaseConnection(ItemsViewerViewModel itemsViewerViewModel)
+        {
+            this.itemsViewerViewModel = itemsViewerViewModel;
             createConnection();
         }
 
@@ -59,6 +67,52 @@ namespace DocNanzDCMS
         {
             this.NewPatientViewModel = newPatientViewModel;
             createConnection();
+        }
+
+        public void getItems()
+        {
+            if (getItemsThread == null || !getItemsThread.IsAlive)
+            {
+                getItemsThread = new Thread(startGettingItems);
+                getItemsThread.IsBackground = true;
+                getItemsThread.Start();
+            }
+        }
+
+        private void startGettingItems()
+        {
+            try
+            {
+                MySqlCommand saveCommand = Connection.CreateCommand();
+                saveCommand.CommandText = "SELECT * FROM docnanz_inventory";
+                MySqlDataReader itemsReader = saveCommand.ExecuteReader();
+                while (itemsReader.Read())
+                {
+                    Item item = new Item()
+                    {
+                        ItemNo = itemsReader.GetString("item_no"),
+                        ItemCode = itemsReader.GetString("item_code"),
+                        ItemName = itemsReader.GetString("item_name"),
+                        ItemType = itemsReader.GetString("item_type"),
+                        PurchaseDate = DateTime.Parse(itemsReader.GetString("item_purchasedate")),
+                        ItemCost = itemsReader.GetString("item_cost"),
+                        ExpirationDate = DateTime.Parse(itemsReader.GetString("item_expirationdate")),
+                        ItemDescription = itemsReader.GetString("item_description"),
+                        DateAdded = DateTime.Parse(itemsReader.GetString("item_dateadded")),
+                        DateModified = DateTime.Parse(itemsReader.GetString("item_datemodified")),
+                        ModifiedBy = itemsReader.GetString("item_modifiedby")
+                    };
+                    itemsViewerViewModel.Items.Add(item);
+                }
+                itemsReader.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("SaveItem Thread");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
         }
 
         private void createConnection()
@@ -112,7 +166,7 @@ namespace DocNanzDCMS
                     saveCommand.Parameters.AddWithValue("@item_cost", NewItemViewModel.ItemCost);
                     saveCommand.Parameters.AddWithValue("@item_expirationdate", NewItemViewModel.ExpirationDate);
                     saveCommand.Parameters.AddWithValue("@item_description", NewItemViewModel.ItemDescription);
-                    saveCommand.Parameters.AddWithValue("@active_user", NewItemViewModel.ActiveUser);
+                    saveCommand.Parameters.AddWithValue("@active_user", NewItemViewModel.ActiveUser.Username);
                     saveCommand.Prepare();
                     saveCommand.ExecuteNonQuery();
                 }

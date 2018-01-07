@@ -7,6 +7,7 @@ namespace DocNanzDCMS
 {
     public class Item
     {
+        private string itemNo;
         private string itemCode;
         private string itemName;
         private string itemType;
@@ -17,7 +18,7 @@ namespace DocNanzDCMS
         private string itemDescription;
         private DateTime dateAdded;
         private DateTime dateModified;
-        private User modifiedBy;
+        private string modifiedBy;
 
         public string ItemCode { get => itemCode; set => itemCode = value; }
         public string ItemName { get => itemName; set => itemName = value; }
@@ -29,6 +30,7 @@ namespace DocNanzDCMS
         public string ItemDescription { get => itemDescription; set => itemDescription = value; }
         public DateTime DateAdded { get => dateAdded; set => dateAdded = value; }
         public DateTime DateModified { get => dateModified; set => dateModified = value; }
-        public User ModifiedBy { get => modifiedBy; set => modifiedBy = value; }
+        public string ModifiedBy { get => modifiedBy; set => modifiedBy = value; }
+        public string ItemNo { get => itemNo; set => itemNo = value; }
     }
 }

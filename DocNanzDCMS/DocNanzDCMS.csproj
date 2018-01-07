@@ -63,6 +63,10 @@
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DentalChart.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemsViewer.xaml.cs">
+      <DependentUpon>ItemsViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsViewerViewModel.cs" />
     <Compile Include="MedicalHistory.cs" />
     <Compile Include="MedicalRecordsViewer.xaml.cs">
       <DependentUpon>MedicalRecordsViewer.xaml</DependentUpon>
@@ -109,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemsViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -29,6 +29,7 @@ namespace DocNanzDCMS
             DatabaseConnection.getCategories();
         }
 
+        public string ItemNo { get => Item.ItemNo; set { Item.ItemNo = value; OnPropertyChanged("ItemCode"); }}
         public Item Item { get => item; set { item = value; OnPropertyChanged("Item"); }}
         public string ItemCode { get => Item.ItemCode; set { Item.ItemCode = value; OnPropertyChanged("ItemCode"); }}
         public string ItemName { get => Item.ItemName; set { Item.ItemName = value; OnPropertyChanged("ItemName"); }}
