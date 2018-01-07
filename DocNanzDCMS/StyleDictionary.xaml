@@ -526,6 +526,31 @@
                                             </ScrollViewer>
                                         </Border>
                                     </Popup>
+                                    <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <TextBox.Style>
+                                            <Style TargetType="{x:Type TextBox}">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Setter Property="FontFamily" Value="Century Gothic"/>
+                                                <Setter Property="FontSize" Value="14"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Setter Property="SelectionBrush" Value="{StaticResource Blue}"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type TextBox}">
+                                                            <StackPanel>
+                                                                <ScrollViewer x:Name="PART_ContentHost" Margin="0,2,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                            </StackPanel>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsFocused" Value="False">
+                                                        <Setter Property="Foreground" Value="{StaticResource Blue}"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBox.Style>
+                                    </TextBox>
                                     <ToggleButton BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
                                         <ToggleButton.Style>
                                             <Style TargetType="{x:Type ToggleButton}">
@@ -533,7 +558,7 @@
                                                 <Setter Property="IsTabStop" Value="False"/>
                                                 <Setter Property="Focusable" Value="False"/>
                                                 <Setter Property="ClickMode" Value="Press"/>
-                                                <Setter Property="Background" Value="{StaticResource Blue}"/>
+                                                <Setter Property="Background" Value="Transparent"/>
                                                 <Setter Property="Template">
                                                     <Setter.Value>
                                                         <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -542,7 +567,7 @@
                                                                     <ColumnDefinition Width="*"/>
                                                                     <ColumnDefinition Width="16"/>
                                                                 </Grid.ColumnDefinitions>
-                                                                <Border Grid.Column="0" Background="Transparent"/>
+                                                                <Border Grid.Column="0" Background="Transparent" IsHitTestVisible="False"/>
                                                                 <Border Grid.Column="1" Background="Transparent">
                                                                     <Path Data="M0,0L3.5,4 7,0z" Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                                 </Border>

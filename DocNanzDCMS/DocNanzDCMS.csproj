@@ -74,6 +74,7 @@
     <Compile Include="NewItem.xaml.cs">
       <DependentUpon>NewItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewItemViewModel.cs" />
     <Compile Include="NewMedicalHistory.xaml.cs">
       <DependentUpon>NewMedicalHistory.xaml</DependentUpon>
     </Compile>

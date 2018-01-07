@@ -16,11 +16,20 @@ namespace DocNanzDCMS
         private Thread savePatientThread;
         private Thread getPatientsThread;
         private Thread getMatchingPatientsThread;
+        private Thread getCategoriesThread;
+        private Thread saveItemThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
         private PatientsViewerViewModel patientsViewerViewModel;
         private NewMedicalHistoryViewModel newMedicalHistoryViewModel;
+        private NewItemViewModel newItemViewModel;
+
+        public DatabaseConnection(NewItemViewModel newItemViewModel)
+        {
+            this.newItemViewModel = newItemViewModel;
+            createConnection();
+        }
 
         public DatabaseConnection(NewMedicalHistoryViewModel newMedicalHistoryViewModel)
         {
@@ -77,6 +86,46 @@ namespace DocNanzDCMS
             }
         }
 
+        public void saveItem()
+        {
+            if (saveItemThread == null || !saveItemThread.IsAlive)
+            {
+                saveItemThread = new Thread(startSavingItem);
+                saveItemThread.IsBackground = true;
+                saveItemThread.Start();
+            }
+        }
+
+        private void startSavingItem()
+        {
+            try
+            {
+                for (int i = 0; i < Int32.Parse(NewItemViewModel.Quantity); i++)
+                {
+                    MySqlCommand saveCommand = Connection.CreateCommand();
+                    saveCommand.CommandText = "INSERT INTO docnanz_inventory VALUES (NULL, @item_code, @item_name, @item_type, @item_purchasedate, @item_supplier, @item_cost, @item_expirationdate, @item_description, NOW(), NOW(), @active_user);";
+                    saveCommand.Parameters.AddWithValue("@item_code", NewItemViewModel.ItemCode);
+                    saveCommand.Parameters.AddWithValue("@item_name", NewItemViewModel.ItemName);
+                    saveCommand.Parameters.AddWithValue("@item_type", NewItemViewModel.ItemType);
+                    saveCommand.Parameters.AddWithValue("@item_purchasedate", NewItemViewModel.PurchaseDate);
+                    saveCommand.Parameters.AddWithValue("@item_supplier", NewItemViewModel.Supplier);
+                    saveCommand.Parameters.AddWithValue("@item_cost", NewItemViewModel.ItemCost);
+                    saveCommand.Parameters.AddWithValue("@item_expirationdate", NewItemViewModel.ExpirationDate);
+                    saveCommand.Parameters.AddWithValue("@item_description", NewItemViewModel.ItemDescription);
+                    saveCommand.Parameters.AddWithValue("@active_user", NewItemViewModel.ActiveUser);
+                    saveCommand.Prepare();
+                    saveCommand.ExecuteNonQuery();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("SaveItem Thread");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
+        }
+
         public void startFindingPatients()
         {
             try
@@ -129,6 +178,38 @@ namespace DocNanzDCMS
             {
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("GetMatchingPatients Thread");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
+        }
+
+        public void getCategories()
+        {
+            if (getCategoriesThread == null || !getCategoriesThread.IsAlive)
+            {
+                getCategoriesThread = new Thread(startGettingCategories);
+                getCategoriesThread.IsBackground = true;
+                getCategoriesThread.Start();
+            }
+        }
+
+        private void startGettingCategories()
+        {
+            try
+            {
+                MySqlCommand getCommand = connection.CreateCommand();
+                getCommand.CommandText = "SELECT DISTINCT(item_type) FROM docnanz_inventory";
+                MySqlDataReader categoriesreader = getCommand.ExecuteReader();
+                while (categoriesreader.Read())
+                {
+                    NewItemViewModel.Categories.Add(categoriesreader.GetString("item_type"));
+                }
+                categoriesreader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("GetCategories Thread");
                 Console.WriteLine(e.Message);
                 Console.WriteLine("-------------------------------------------------------------");
             }
@@ -259,6 +340,7 @@ namespace DocNanzDCMS
         public NewPatientViewModel NewPatientViewModel { get => newPatientViewModel; set => newPatientViewModel = value; }
         public PatientsViewerViewModel PatientsViewerViewModel { get => patientsViewerViewModel; set => patientsViewerViewModel = value; }
         public NewMedicalHistoryViewModel NewMedicalHistoryViewModel { get => newMedicalHistoryViewModel; set => newMedicalHistoryViewModel = value; }
+        public NewItemViewModel NewItemViewModel { get => newItemViewModel; set => newItemViewModel = value; }
 
         public void saveUserAccount()
         {
