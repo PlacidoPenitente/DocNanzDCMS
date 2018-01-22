@@ -39,8 +39,8 @@
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=dashboard, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
                             <RadioButton Content="Overview" local:AttachedProperties.Icon="{StaticResource OverviewDashboard}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Make Appointment" local:AttachedProperties.Icon="{StaticResource Appointment}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Patient Queue" local:AttachedProperties.Icon="{StaticResource Queue}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_7"/>
+                            <RadioButton Content="Make Appointment" local:AttachedProperties.Icon="{StaticResource Appointment}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_9"/>
                             <RadioButton Content="Notifications" local:AttachedProperties.Icon="{StaticResource Notification}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=patient_menu, Path=Background}">
@@ -52,12 +52,12 @@
                             <ToggleButton Grid.Column="1" x:Name="patient" IsChecked="{Binding ElementName=patient_menu, Path=IsChecked}" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=patient, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <RadioButton Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Patients List" local:AttachedProperties.Icon="{StaticResource List}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click"/>
+                            <RadioButton Content="Register New Patient" local:AttachedProperties.Icon="{StaticResource Register}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_1"/>
+                            <RadioButton Content="Families" local:AttachedProperties.Icon="{StaticResource Family}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_2"/>
+                            <RadioButton Content="Medical Records" local:AttachedProperties.Icon="{StaticResource Medical}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_8"/>
                             <RadioButton Content="Dental Charts" local:AttachedProperties.Icon="{StaticResource Chart}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Files" local:AttachedProperties.Icon="{StaticResource Files}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_10"/>
                         </StackPanel>
                         <Grid Background="{Binding ElementName=finance_menu, Path=Background}">
                             <Grid.ColumnDefinitions>
@@ -81,8 +81,8 @@
                             <ToggleButton Grid.Column="1" IsChecked="{Binding ElementName=inventory_menu, Path=IsChecked}" x:Name="inventory" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=inventory, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <RadioButton Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Items" local:AttachedProperties.Icon="{StaticResource Item}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_3"/>
+                            <RadioButton Content="Add New Item" local:AttachedProperties.Icon="{StaticResource Add}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_4"/>
                             <RadioButton Content="Update Stocks" local:AttachedProperties.Icon="{StaticResource Update}" Style="{StaticResource SubMenuButton}"/>
                             <RadioButton Content="Critical Items" local:AttachedProperties.Icon="{StaticResource Critical}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
@@ -108,8 +108,8 @@
                             <ToggleButton Grid.Column="1" IsChecked="{Binding ElementName=accounts_menu, Path=IsChecked}" x:Name="accounts" Style="{StaticResource toggle}"/>
                         </Grid>
                         <StackPanel Visibility="{Binding ElementName=accounts, Path=(local:AttachedProperties.MenuState)}" Background="{StaticResource LightLightRed}">
-                            <RadioButton Content="Users" local:AttachedProperties.Icon="{StaticResource Users}" Style="{StaticResource SubMenuButton}"/>
-                            <RadioButton Content="Create New Account" local:AttachedProperties.Icon="{StaticResource AddUser}" Style="{StaticResource SubMenuButton}"/>
+                            <RadioButton Content="Users" local:AttachedProperties.Icon="{StaticResource Users}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_5"/>
+                            <RadioButton Content="Create New Account" local:AttachedProperties.Icon="{StaticResource AddUser}" Style="{StaticResource SubMenuButton}" Click="RadioButton_Click_6"/>
                             <RadioButton Content="Activity Logs" local:AttachedProperties.Icon="{StaticResource Logs}" Style="{StaticResource SubMenuButton}"/>
                         </StackPanel>
                         <RadioButton GroupName="MainMenu" Content="Maintenance" local:AttachedProperties.Icon="{StaticResource Maintenance}" Style="{StaticResource MenuButton}"/>
@@ -121,6 +121,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <local:ItemsViewer Grid.Column="1"/>
+        <ContentControl Content="{Binding SelectedPage}" Grid.Column="1"/>
     </Grid>
 </Window>

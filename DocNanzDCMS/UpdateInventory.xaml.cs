@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace DocNanzDCMS
 {
     /// <summary>
-    /// Interaction logic for NewTreatment.xaml
+    /// Interaction logic for UpdateInventory.xaml
     /// </summary>
-    public partial class NewTreatment : UserControl
+    public partial class UpdateInventory : UserControl
     {
-        public NewTreatment()
+        public UpdateInventory()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

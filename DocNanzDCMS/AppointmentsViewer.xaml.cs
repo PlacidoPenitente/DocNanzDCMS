@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace DocNanzDCMS
 {
     /// <summary>
-    /// Interaction logic for NewTreatment.xaml
+    /// Interaction logic for AppointmentsViewer.xaml
     /// </summary>
-    public partial class NewTreatment : UserControl
+    public partial class AppointmentsViewer : UserControl
     {
-        public NewTreatment()
+        public AppointmentsViewer()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

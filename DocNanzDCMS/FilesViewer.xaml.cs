@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace DocNanzDCMS
 {
     /// <summary>
-    /// Interaction logic for NewTreatment.xaml
+    /// Interaction logic for FilesViewer.xaml
     /// </summary>
-    public partial class NewTreatment : UserControl
+    public partial class FilesViewer : UserControl
     {
-        public NewTreatment()
+        public FilesViewer()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

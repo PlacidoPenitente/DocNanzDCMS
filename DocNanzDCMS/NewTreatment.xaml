@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:DocNanzDCMS"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1024">
+    <UserControl.DataContext>
+        <local:NewTreatmentViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -18,7 +21,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="0" Background="{StaticResource Blue}" Orientation="Horizontal">
-            <Label Foreground="White" FontFamily="Century Gothic" VerticalAlignment="Center" FontSize="18" Content="New Appointment"/>
+            <Label Foreground="White" FontFamily="Century Gothic" VerticalAlignment="Center" FontSize="18" Content="New Treatment"/>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="0" Background="{StaticResource Blue}"/>
         <StackPanel Grid.Column="2" Grid.Row="0" Background="{StaticResource Blue}"/>
@@ -26,46 +29,31 @@
             <Grid Margin="0, 20, 0, 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="120"/>
                     <RowDefinition Height="98"/>
                     <RowDefinition Height="98"/>
                     <RowDefinition Height="98"/>
                     <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
-                <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding MedicalTreatment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Item Name:" Style="{StaticResource TextBox}"/>
-                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding MedicalTreatment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Item Code:" Style="{StaticResource TextBox}"/>
-
-                <ComboBox Style="{StaticResource ComboBox}" ItemsSource="{Binding YesOrNo}" SelectedIndex="0" Text="{Binding IsInGoodHealth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Item Type:" local:AttachedProperties.Error="" Grid.Column="2" Grid.Row="0"/>
-
-                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding MedicalTreatment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Item Supplier:" Style="{StaticResource TextBox}"/>
-
-                <TextBox Grid.Column="0" Grid.Row="2" Text="{Binding MedicalTreatment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Item Retail Price:" Style="{StaticResource TextBox}"/>
-
-                <DatePicker Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" local:AttachedProperties.Label="Date Purchased: "/>
-
-                <DatePicker Grid.Column="2" Grid.Row="1" Style="{StaticResource DatePicker}" local:AttachedProperties.Label="Date of Expiration: "/>
-
-                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SeriousIllnessOrOperation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding NationalityError}" local:AttachedProperties.Label="Current Quantity:" Style="{StaticResource TextBox}"/>
-
-                <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding SeriousIllnessOrOperation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding NationalityError}" local:AttachedProperties.Label="Critical Value:" Style="{StaticResource TextBox}"/>
-
-                <TextBox Width="600" Text="{Binding HospitalizationReason, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Item Description:" Style="{StaticResource TextBox}"/>
+                <ComboBox Width="400" Style="{StaticResource ComboBox}" IsEditable="True" ItemsSource="{Binding TreatmentTypes}" SelectedIndex="0" Text="{Binding TreatmentName, Mode=TwoWay}" local:AttachedProperties.Label="Treatment Name:" local:AttachedProperties.Error="{Binding TreatmentNameError}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" IsEditable="True" ItemsSource="{Binding TreatmentTypes}" SelectedIndex="0" Text="{Binding TreatmentType, Mode=TwoWay}" local:AttachedProperties.Label="Treatment Type:" local:AttachedProperties.Error="{Binding TreatmentTypeError}" Grid.Column="2" Grid.Row="0"/>
+                <TextBox Width="200"  Grid.Column="0" Grid.Row="1" Text="{Binding TreatmentDuration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding TreatmentDurationError}" local:AttachedProperties.Label="Duration (in mins.):" Style="{StaticResource TextBox}"/>
+                <TextBox Width="200" Grid.Column="0" Grid.Row="2" Text="{Binding TreatmentCost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding TreatmentCostError}" local:AttachedProperties.Label="Cost:" Style="{StaticResource TextBox}"/>
+                <TextBox Width="600" Text="{Binding TreatmentDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding TreatmentDescriptionError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Treatment Description:" Style="{StaticResource TextBox}"/>
+                <ListBox ItemsSource="{Binding ItemsUsed}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" ItemsSource="{Binding Items}" SelectedIndex="0" DisplayMemberPath="{Binding ItemCode}" local:AttachedProperties.Label="Available Items:" local:AttachedProperties.Error="{Binding TreatmentNameError}" Grid.Column="1" Grid.Row="2"/>
+                <StackPanel Grid.Column="2" Grid.Row="2">
+                    <Button Content="Add" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+                    <Button Content="Remove" Style="{StaticResource Button}" BorderBrush="{StaticResource Red}" Background="{StaticResource Blue}"/>
+                </StackPanel>
             </Grid>
         </ScrollViewer>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">
-            <Button Content="Proceed" Style="{StaticResource Button}" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
+            <Button Content="Proceed" Style="{StaticResource Button}" Click="Button_Click" BorderBrush="{StaticResource Blue}" Background="{StaticResource Blue}"/>
             <Button Content="Cancel" Style="{StaticResource Button}" BorderBrush="{StaticResource LightRed}" Background="{StaticResource LightRed}"/>
         </StackPanel>
     </Grid>

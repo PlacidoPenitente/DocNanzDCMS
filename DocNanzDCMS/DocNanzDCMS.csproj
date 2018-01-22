@@ -60,8 +60,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentsViewer.xaml.cs">
+      <DependentUpon>AppointmentsViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DentalChart.cs" />
+    <Compile Include="FilesViewer.xaml.cs">
+      <DependentUpon>FilesViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="ItemsViewer.xaml.cs">
       <DependentUpon>ItemsViewer.xaml</DependentUpon>
@@ -90,6 +96,7 @@
     <Compile Include="NewTreatment.xaml.cs">
       <DependentUpon>NewTreatment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewTreatmentViewModel.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientsViewer.xaml.cs">
       <DependentUpon>PatientsViewer.xaml</DependentUpon>
@@ -99,16 +106,27 @@
     <Compile Include="Procedure.cs" />
     <Compile Include="Tooth.cs" />
     <Compile Include="Treatment.cs" />
+    <Compile Include="UpdateInventory.xaml.cs">
+      <DependentUpon>UpdateInventory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserAccountsViewer.xaml.cs">
       <DependentUpon>UserAccountsViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAccountsViewerViewModel.cs" />
+    <Page Include="AppointmentsViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ColorDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConverterDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilesViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateInventory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +295,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Calendar_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Checkmark_16px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

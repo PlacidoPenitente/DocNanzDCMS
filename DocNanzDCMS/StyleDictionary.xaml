@@ -714,4 +714,57 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+        <Setter Property="Foreground" Value="{StaticResource Blue}"/>
+        <Setter Property="Background" Value="#FFF4F4F4"/>
+        <Setter Property="BorderBrush" Value="#FF8E8F8F"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="FontFamily" Value="Century Gothic"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="1" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                        <Border x:Name="checkbox" Background="Transparent" Width="18" Height="18" BorderBrush="{StaticResource Blue}" BorderThickness="1" CornerRadius="3"/>
+                        <ContentPresenter Margin="4"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                            <Border x:Name="checkbox" Background="Transparent" Width="18" Height="18" BorderBrush="{StaticResource Blue}" BorderThickness="1" CornerRadius="3">
+                                                <Image Source="{StaticResource }"/>
+                                            </Border>
+                                            <ContentPresenter Margin="4"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="HasContent" Value="True">
+                            <Setter Property="Padding" Value="4,0,0,0"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

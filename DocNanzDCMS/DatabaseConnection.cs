@@ -19,6 +19,7 @@ namespace DocNanzDCMS
         private Thread getCategoriesThread;
         private Thread saveItemThread;
         private Thread getItemsThread;
+        private Thread getDistinctItemsThread;
         private NewUserAccountViewModel newUserAccountViewModel;
         private UserAccountsViewerViewModel userAccountsViewerViewModel;
         private NewPatientViewModel newPatientViewModel;
@@ -26,6 +27,7 @@ namespace DocNanzDCMS
         private NewMedicalHistoryViewModel newMedicalHistoryViewModel;
         private NewItemViewModel newItemViewModel;
         private ItemsViewerViewModel itemsViewerViewModel;
+        private NewTreatmentViewModel newTreatmentViewModel;
 
         public DatabaseConnection(NewItemViewModel newItemViewModel)
         {
@@ -45,6 +47,12 @@ namespace DocNanzDCMS
             createConnection();
         }
 
+        public DatabaseConnection(NewTreatmentViewModel newTreatmentViewModel)
+        {
+            this.newTreatmentViewModel = newTreatmentViewModel;
+            createConnection();
+        }
+
         public DatabaseConnection(NewUserAccountViewModel newUserAccountViewModel)
         {
             this.newUserAccountViewModel = newUserAccountViewModel;
@@ -53,7 +61,7 @@ namespace DocNanzDCMS
 
         public DatabaseConnection(PatientsViewerViewModel patientsViewerViewModel)
         {
-            this.PatientsViewerViewModel = patientsViewerViewModel;
+            this.patientsViewerViewModel = patientsViewerViewModel;
             createConnection();
         }
 
@@ -65,7 +73,7 @@ namespace DocNanzDCMS
 
         public DatabaseConnection(NewPatientViewModel newPatientViewModel)
         {
-            this.NewPatientViewModel = newPatientViewModel;
+            this.newPatientViewModel = newPatientViewModel;
             createConnection();
         }
 
@@ -102,7 +110,7 @@ namespace DocNanzDCMS
                         DateModified = DateTime.Parse(itemsReader.GetString("item_datemodified")),
                         ModifiedBy = itemsReader.GetString("item_modifiedby")
                     };
-                    itemsViewerViewModel.Items.Add(item);
+                    ItemsViewerViewModel.Items.Add(item);
                 }
                 itemsReader.Close();
             }
@@ -110,6 +118,52 @@ namespace DocNanzDCMS
             {
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("SaveItem Thread");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-------------------------------------------------------------");
+            }
+        }
+
+        public void getDistinctItems()
+        {
+            if (getDistinctItemsThread == null || !getDistinctItemsThread.IsAlive)
+            {
+                getDistinctItemsThread = new Thread(startGettingDistinctItems);
+                getDistinctItemsThread.IsBackground = true;
+                getDistinctItemsThread.Start();
+            }
+        }
+
+        private void startGettingDistinctItems()
+        {
+            try
+            {
+                MySqlCommand saveCommand = Connection.CreateCommand();
+                saveCommand.CommandText = "SELECT item_no, item_name, item_type, item_purchasedate, item_cost, item_expirationdate, item_description, item_dateadded, item_datemodified, item_modifiedby, DISTINCT(item_code) FROM docnanz_inventory";
+                MySqlDataReader itemsReader = saveCommand.ExecuteReader();
+                while (itemsReader.Read())
+                {
+                    Item item = new Item()
+                    {
+                        ItemNo = itemsReader.GetString("item_no"),
+                        ItemCode = itemsReader.GetString("item_code"),
+                        ItemName = itemsReader.GetString("item_name"),
+                        ItemType = itemsReader.GetString("item_type"),
+                        PurchaseDate = DateTime.Parse(itemsReader.GetString("item_purchasedate")),
+                        ItemCost = itemsReader.GetString("item_cost"),
+                        ExpirationDate = DateTime.Parse(itemsReader.GetString("item_expirationdate")),
+                        ItemDescription = itemsReader.GetString("item_description"),
+                        DateAdded = DateTime.Parse(itemsReader.GetString("item_dateadded")),
+                        DateModified = DateTime.Parse(itemsReader.GetString("item_datemodified")),
+                        ModifiedBy = itemsReader.GetString("item_modifiedby")
+                    };
+                    NewTreatmentViewModel.Items.Add(item);
+                }
+                itemsReader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("GetItem Thread");
                 Console.WriteLine(e.Message);
                 Console.WriteLine("-------------------------------------------------------------");
             }
@@ -395,6 +449,8 @@ namespace DocNanzDCMS
         public PatientsViewerViewModel PatientsViewerViewModel { get => patientsViewerViewModel; set => patientsViewerViewModel = value; }
         public NewMedicalHistoryViewModel NewMedicalHistoryViewModel { get => newMedicalHistoryViewModel; set => newMedicalHistoryViewModel = value; }
         public NewItemViewModel NewItemViewModel { get => newItemViewModel; set => newItemViewModel = value; }
+        public ItemsViewerViewModel ItemsViewerViewModel { get => itemsViewerViewModel; set => itemsViewerViewModel = value; }
+        public NewTreatmentViewModel NewTreatmentViewModel { get => newTreatmentViewModel; set => newTreatmentViewModel = value; }
 
         public void saveUserAccount()
         {

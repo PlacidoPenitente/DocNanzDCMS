@@ -35,4 +35,5 @@
     <ImageSource x:Key="AddUser">/Images/AddNewUserMale_48px.png</ImageSource>
     <ImageSource x:Key="Logs">/Images/ActivityFeed_48px.png</ImageSource>
     <ImageSource x:Key="Calendar">/Images/Calendar_24px.png</ImageSource>
+    <ImageSource x:Key="Check">/Images/Checkmark_16px.png</ImageSource>
 </ResourceDictionary>

@@ -38,53 +38,54 @@
                     <RowDefinition Height="98"/>
                     <RowDefinition Height="98"/>
                     <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
-                    <RowDefinition Height="98"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBox x:Name="Firstname" Width="200" Grid.Column="0" Grid.Row="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FirstNameError}" local:AttachedProperties.Label="First Name:" Style="{StaticResource TextBox}"/>
                 <TextBox x:Name="MiddleName" Width="200" Grid.Column="1" Grid.Row="0" Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding MiddleNameError}" local:AttachedProperties.Label="Middle Name:" Style="{StaticResource TextBox}"/>
                 <TextBox x:Name="LastName" Width="200" Grid.Column="2" Grid.Row="0" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding LastNameError}" local:AttachedProperties.Label="Last Name:" Style="{StaticResource TextBox}"/>
 
-                <ComboBox Width="200" Style="{StaticResource ComboBox}" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="0" Grid.Row="1">
+                <ComboBox Width="200" Style="{StaticResource ComboBox}" IsReadOnly="True" SelectedIndex="0" Text="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Label="Gender:" local:AttachedProperties.Error="" Grid.Column="2" Grid.Row="1" SelectionChanged="ComboBox_SelectionChanged">
                     <ComboBoxItem Content="Male"/>
                     <ComboBoxItem Content="Female"/>
                 </ComboBox>
-                <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Birthdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
-                <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="100" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
+                <DatePicker x:Name="Birthdate" local:AttachedProperties.Error="" SelectedDate="{Binding Birthdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Birthdate:"/>
+                <TextBox x:Name="Age" local:AttachedProperties.Error="{Binding AgeError, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="100" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" local:AttachedProperties.Label="Age:" Style="{StaticResource TextBox}"/>
 
-                <TextBox x:Name="Religion" Width="200" Grid.Column="0" Grid.Row="2" Text="{Binding Religion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ReligionError}" local:AttachedProperties.Label="Religion:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="Nationality" Width="200" Grid.Column="1" Grid.Row="2" Text="{Binding Nationality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding NationalityError}" local:AttachedProperties.Label="Nationality:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="Nickname" Width="200" Grid.Column="2" Grid.Row="2" Text="{Binding Nickname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding NicknameError}" local:AttachedProperties.Label="Nickname:" Style="{StaticResource TextBox}"/>
+                <TextBox x:Name="Address" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
+                
+                <TextBox x:Name="OfficeAddress" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" local:AttachedProperties.Label="Office Address:" Style="{StaticResource TextBox}"/>
+                
+                <TextBox x:Name="HomeNo" Width="200" Grid.Column="2" Grid.Row="2" Text="{Binding HomeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding HomeNoError}" local:AttachedProperties.Label="Home No.:" Style="{StaticResource TextBox}"/>
+                <TextBox x:Name="CelNo" Width="200" Grid.Column="1" Grid.Row="4" Text="{Binding ContactNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ContactNoError}" local:AttachedProperties.Label="Mobile No.:" Style="{StaticResource TextBox}"/>
 
-                <TextBox x:Name="Address" Width="600" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding AddressError}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" local:AttachedProperties.Label="Address:" Style="{StaticResource TextBox}"/>
+                <TextBox x:Name="Occupation" Width="200" Grid.Column="0" Grid.Row="3" Text="{Binding Occupation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OccupationError}" local:AttachedProperties.Label="Occupation:" Style="{StaticResource TextBox}"/>
+                <TextBox x:Name="OfficeNo" Width="200" Grid.Column="0" Grid.Row="4" Text="{Binding OfficeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OfficeNoError}" local:AttachedProperties.Label="Office No.:" Style="{StaticResource TextBox}"/>
 
-                <TextBox x:Name="Email" Width="200" Grid.Column="0" Grid.Row="4" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding EmailAddressError}" local:AttachedProperties.Label="Email Address:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="HomeNo" Width="200" Grid.Column="1" Grid.Row="4" Text="{Binding HomeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding HomeNoError}" local:AttachedProperties.Label="Home No.:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="CelNo" Width="200" Grid.Column="2" Grid.Row="4" Text="{Binding ContactNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ContactNoError}" local:AttachedProperties.Label="Mobile No.:" Style="{StaticResource TextBox}"/>
-
-                <TextBox x:Name="Occupation" Width="200" Grid.Column="0" Grid.Row="5" Text="{Binding Occupation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OccupationError}" local:AttachedProperties.Label="Occupation:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="OfficeNo" Width="200" Grid.Column="1" Grid.Row="5" Text="{Binding OfficeNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding OfficeNoError}" local:AttachedProperties.Label="Office No.:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="FaxNo" Width="200" Grid.Column="2" Grid.Row="5" Text="{Binding FaxNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding FaxNoError}" local:AttachedProperties.Label="Fax No.:" Style="{StaticResource TextBox}"/>
-
-                <TextBox x:Name="Insurance" Width="200" Grid.Column="0" Grid.Row="6" Text="{Binding DentalInsurance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding DentalInsuranceError}" local:AttachedProperties.Label="Dental Insurance:" Style="{StaticResource TextBox}"/>
-                <DatePicker x:Name="EffectiveDate" local:AttachedProperties.Error="" SelectedDate="{Binding EffectiveDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="6" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="EffectiveDate:"/>
-
-                <TextBox x:Name="GuardianName" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="{Binding GuardianName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding GuardianNameError}" local:AttachedProperties.Label="Parent/Guardian's Name:" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="GuardianOccupation" Width="200" Grid.Column="3" Grid.Row="7" Text="{Binding GuardianOccupation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding GuardianOccupationError}" local:AttachedProperties.Label="Occupation:" Style="{StaticResource TextBox}"/>
-
-                <TextBox x:Name="Referee" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Text="{Binding Referee, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding RefereeError}" local:AttachedProperties.Label="Whom may we thank for referring you?" Style="{StaticResource TextBox}"/>
-                <TextBox x:Name="Reason" Width="200" Grid.Column="3" Grid.Row="8" Text="{Binding ConsultationReason, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding ConsultationReasonError}" local:AttachedProperties.Label="Consulation Reason:" Style="{StaticResource TextBox}"/>
-
-                <TextBox x:Name="LastDentist" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" Text="{Binding PreviousDentist, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" local:AttachedProperties.Error="{Binding PreviousDentistError}" local:AttachedProperties.Label="Previous Dentist: " Style="{StaticResource TextBox}"/>
-                <DatePicker x:Name="LastVisit" local:AttachedProperties.Error="" SelectedDate="{Binding LastDentalVisit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="9" Style="{StaticResource DatePicker}" Width="200" local:AttachedProperties.Label="Last Dental Visit:"/>
-
-                <StackPanel Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal">
-                    <TextBox Width="400" local:AttachedProperties.Label="Attach Photo:" MouseDoubleClick="TextBox_MouseDoubleClick" Text="{Binding Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBox}"/>
-                </StackPanel>
+                <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </ScrollViewer>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,20">

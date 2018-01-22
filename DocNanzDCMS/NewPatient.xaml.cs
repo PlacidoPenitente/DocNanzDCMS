@@ -42,5 +42,10 @@ namespace DocNanzDCMS
                 newPatientViewModel.cancelUserUpdate();
             }
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
