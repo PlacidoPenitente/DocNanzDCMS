@@ -745,6 +745,7 @@
                     </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="checkbox" Value="{StaticResource Blue}"/>
                             <Setter Property="Source" TargetName="icon" Value="{StaticResource Check}"/>
                         </Trigger>
                         <Trigger Property="HasContent" Value="True">
