@@ -71,7 +71,6 @@
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
-                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
@@ -82,7 +81,7 @@
                     <StackPanel Grid.Column="2">
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
-                        <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
+                                                <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                         <CheckBox Content="Rheumatic Fever" Style="{DynamicResource CheckBoxStyle1}" Margin="5"/>
                     </StackPanel>
                 </Grid>

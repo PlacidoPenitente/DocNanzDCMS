@@ -173,7 +173,7 @@ namespace DocNanzDCMS
         {
             try
             {
-                connection = new MySqlConnection("server=localhost; user=docnanz; password=docnanz; database=docnanz_database");
+                connection = new MySqlConnection("server=192.168.254.10; user=docnanz; password=docnanz; database=docnanz_database");
                 connection.Open();
             }
             catch (Exception e)
